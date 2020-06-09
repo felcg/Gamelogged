@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import './assets/custom.scss'
 import App from './App'
+import './fontawesome'
 
 
 ReactDOM.render(
