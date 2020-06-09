@@ -1,0 +1,84 @@
+.GameCard {
+    font-family: 'Roboto Slab', serif;
+
+    border: none;
+    border-bottom: 1px solid #dbe9f5;
+    border-radius: 0;
+    margin-bottom: 1rem;
+    padding: .5rem;
+
+    img {
+        height: auto;
+        width: 40%;
+    }
+
+    h4 {
+        color: #0088ff;
+    }
+
+    .GameNameContainer {
+        display: flex;
+        justify-content: center;
+        
+        .GameName {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .LinkIcon {
+            margin-left: auto;
+            color: #6982ff;
+        }
+    }
+
+
+    .CoverAndInfo {
+        display: flex;
+
+        .GameInfo {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .GameSummary {
+                display: -webkit-box;
+                -webkit-line-clamp: 6;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                padding-left: .5rem;
+                font-weight: 300;
+            }
+ 
+        }
+    }
+
+    .ReleaseDateAndRating {
+        display: flex;
+        align-items: center;
+
+        .GameRating {
+            background: #1fbb87;
+            height: 50px;
+            width: 50px;
+            border-radius: 10%;
+            margin-left: auto;
+            text-align: center;
+    
+            span {
+                height: 50px;
+                line-height: 50px;
+                white-space: nowrap;
+                color: white;
+                font-size: 1.5rem;
+            }
+        }
+    
+        .ReleaseDate {
+            color: #a5b4c4;
+        }
+    }
+     
+    
+    
+
+    
+}
