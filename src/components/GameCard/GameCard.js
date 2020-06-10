@@ -19,10 +19,10 @@ const GameCard = ({ game }) => (
 
     </div>
     <div className="ReleaseDateAndRating">
-      <div className="ReleaseDate">{game.release_dates[0].human}</div>
+      {game.release_dates && <div className="ReleaseDate">{game.release_dates[0].human}</div>}
 
       <div className="GameRating">
-        <span>{game.total_rating.toFixed()}</span>
+        {game.total_rating && <span>{game.total_rating.toFixed()}</span>}
       </div>
     </div>
 
