@@ -1,0 +1,22 @@
+.page-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border: none;
+    color: #6982ff;
+}
+
+.page-link:focus  {
+    outline: 0;
+}
+
+.page-link:hover {
+    color: white;
+    background-color: #6982ff;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6982ff;
+}
