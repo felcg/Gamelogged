@@ -8,7 +8,7 @@ import Pagination from './Pagination/Pagination'
 import GameCard from './GameCard/GameCard'
 
 
-const Component = (props) => {
+const Index = (props) => {
   const [pager, setPager] = useState({})
   const [pageOfGames, setPageOfGames] = useState([])
   const baseUrl = 'http://localhost:3001/api/games'
@@ -17,9 +17,11 @@ const Component = (props) => {
   const getAllImages = (arr) => {
     const newArr = [...arr]
     newArr.map((game) => {
-      game.cover.url = game.cover.url.split('/')
-      game.cover.url[6] = 't_cover_big'
-      game.cover.url = game.cover.url.join('/')
+      if (game.cover) {
+        game.cover.url = game.cover.url.split('/')
+        game.cover.url[6] = 't_cover_big'
+        game.cover.url = game.cover.url.join('/')
+      }
       return null
     })
     setPageOfGames(newArr)
@@ -29,8 +31,8 @@ const Component = (props) => {
     const params = new URLSearchParams(props.location.search)
     const page = parseInt(params.get('page'), 10) || 1
     const request = await axios.get(`${baseUrl}?page=${page}`)
+    console.log(request.data.pageOfGames)
     setPager(request.data.pager)
-    setPageOfGames(request.data.pageOfGames)
     getAllImages(request.data.pageOfGames)
   }
 
@@ -51,4 +53,4 @@ const Component = (props) => {
   )
 }
 
-export default Component
+export default Index
