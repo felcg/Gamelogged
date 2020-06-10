@@ -4,15 +4,16 @@
     line-height: 1.5;
     border: none;
     color: #6982ff;
-}
 
-.page-link:focus  {
-    outline: 0;
-}
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
 
-.page-link:hover {
-    color: white;
-    background-color: #6982ff;
+    &:hover {
+        color: white;
+        background-color: #6982ff;
+    }
 }
 
 .page-item.active .page-link {
