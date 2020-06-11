@@ -1,15 +1,13 @@
 .GameCard {
-    font-family: 'Roboto Slab', serif;
-
     border: none;
     border-bottom: 1px solid #dbe9f5;
     border-radius: 0;
     margin-bottom: 1rem;
-    padding: .5rem;
+    padding-top: 0.5rem;
 
     img {
         height: auto;
-        width: 40%;
+        width: 30%;
     }
 
     h4 {
@@ -19,14 +17,32 @@
     .GameNameContainer {
         display: flex;
         justify-content: center;
+        width: 100%;
         
         .GameName {
             font-family: 'Lato', sans-serif;
+            width: 100%;
         }
 
         .LinkIcon {
             margin-left: auto;
             color: #6982ff;
+        }
+        .GameRating {
+            background: #1fbb87;
+            height: 50px;
+            width: 50px;
+            border-radius: 10%;
+            margin-left: auto;
+            text-align: center;
+    
+            span {
+                height: 50px;
+                line-height: 50px;
+                white-space: nowrap;
+                color: white;
+                font-size: 1.5rem;
+            }
         }
     }
 
@@ -45,35 +61,31 @@
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 padding-left: .5rem;
-                font-weight: 300;
+                font-size: 14px;
+                color: #707070;
             }
  
         }
     }
 
-    .ReleaseDateAndRating {
+    .ReleaseDateAndButton {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        padding: .5rem 0;
 
-        .GameRating {
-            background: #1fbb87;
-            height: 50px;
-            width: 50px;
-            border-radius: 10%;
-            margin-left: auto;
-            text-align: center;
-    
-            span {
-                height: 50px;
-                line-height: 50px;
-                white-space: nowrap;
-                color: white;
-                font-size: 1.5rem;
-            }
-        }
-    
         .ReleaseDate {
+            font-family: 'Roboto Slab', serif;
             color: #a5b4c4;
+        }
+
+        button {
+            span {
+                margin-left: 2px;
+            }
+            background-color: #f8f8ff;
+            border: none;
+            color: #6982ff;;
         }
     }
      
