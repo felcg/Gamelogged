@@ -32,6 +32,7 @@ indent: ["error", 2],
     "react/jsx-one-expression-per-line": "off",
     "react/button-has-type": "off",
     "no-alert": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react-hooks/exhaustive-deps": "off"
   },
 };
