@@ -13,7 +13,7 @@ import './Index.scss'
 const Index = (props) => {
   const [pager, setPager] = useState({})
   const [pageOfGames, setPageOfGames] = useState([])
-  const baseUrl = 'http://localhost:3001/api/games'
+  const baseUrl = 'http://localhost:3001/api/'
 
 
   const getAllImages = (arr) => {
@@ -32,11 +32,11 @@ const Index = (props) => {
   const getAll = async () => {
     const params = new URLSearchParams(props.location.search)
     const page = parseInt(params.get('page'), 10) || 1
-    const request = await axios.get(`${baseUrl}?page=${page}`)
-    console.log(request.data.pageOfGames)
+    const request = await axios.get(`${baseUrl}games?page=${page}`)
     setPager(request.data.pager)
     getAllImages(request.data.pageOfGames)
   }
+
 
   useEffect(() => {
     getAll()
