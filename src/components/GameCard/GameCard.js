@@ -15,7 +15,7 @@ const GameCard = ({ game }) => (
     <div className="GameNameContainer">
       <h5 className="GameName">{game.name} </h5>
       <div className="GameRating">
-        {game.total_rating && <span>{game.total_rating.toFixed()}</span>}
+        {game.total_rating != null && <span>{game.total_rating.toFixed()}</span>}
       </div>
     </div>
     <div className="CoverAndInfo">
