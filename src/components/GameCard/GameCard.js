@@ -10,6 +10,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //   return `${hours}h${minutes}m`
 // }
 
+const unixToDate = (unix) => {
+  const milliseconds = unix * 1000
+
+  const dateObject = new Date(milliseconds)
+
+  return dateObject.toLocaleDateString()
+}
+
 const GameCard = ({ game }) => (
   <Card className="GameCard" key={game.id}>
     <div className="GameNameContainer">
@@ -28,7 +36,7 @@ const GameCard = ({ game }) => (
 
     </div>
     <div className="ReleaseDateAndButton">
-      {game.release_dates && <div className="ReleaseDate">{game.release_dates[0].human}</div>}
+      {game.first_release_date && <div className="ReleaseDate">{unixToDate(game.first_release_date)}</div>}
 
       {/* {game.time_to_beat && (
         <div className="TimeToBeat">
