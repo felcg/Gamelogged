@@ -11,10 +11,13 @@ import './Index.scss'
 
 
 const Index = () => {
+  const initialFilters = { genre: '', coop: '', gameMode: '' }
   const [games, setGames] = useState([])
+  const [filteredGames, setFilteredGames] = useState(games)
   const [pageOfGames, setPageOfGames] = useState([])
   const [platform, setPlatform] = useState('wii')
-  const [sort, setSort] = useState('release')
+  const [filters, setFilters] = useState(initialFilters)
+  const [sort, setSort] = useState('')
 
   const platforms = [
     { slug: 'win', name: 'PC' },
@@ -51,6 +54,12 @@ const Index = () => {
     { slug: 'android', name: 'Android' },
     { slug: 'linux', name: 'Linux' }]
 
+  const genres = ['Simulator', 'Tactical', 'Quiz/Trivia', 'Fighting', 'Strategy', 'Adventure', 'Role-playing (RPG)', 'Shooter', 'Music', 'Indie', 'Turn-based strategy (TBS)', 'Pinball', 'Puzzle', 'Real Time Strategy (RTS)', 'Hack and slash/Beat \'em up', 'Visual Novel', 'Platform', 'Racing', 'Sport', 'Arcade', 'Point-and-click', 'Card & Board Game', 'MOBA']
+
+  const gameModes = ['Co-operative', 'Single player', 'Multiplayer', 'Massively Multiplayer Online (MMO)', 'Split screen', 'Battle Royale']
+
+  const coopModes = ['Campaign Coop', 'Offline Coop', 'Online Coop']
+
   const baseUrl = 'http://localhost:3001/api/'
 
   function onChangePage(pageOfGames) {
@@ -70,28 +79,124 @@ const Index = () => {
       return null
     })
 
-    if (sort === 'release') {
-      newArr.sort((a, b) => (b.first_release_date - a.first_release_date))
-    }
+    const firstSort = newArr.sort((a, b) => (b.first_release_date - a.first_release_date))
+    setGames(firstSort)
+    setFilteredGames(firstSort)
+  }
 
-    if (sort === 'rating') {
-      newArr.sort((a, b) => (b.total_rating - a.total_rating))
+  const filterGenre = (e) => {
+    const newFilter = { genre: e.target.value, coop: '', gameMode: '' }
+    if (e.target.value !== '') {
+      setFilteredGames(games
+        .filter((game) => game.genres
+          .some((g) => g.name === e.target.value)))
+      setFilters(newFilter)
+    } else {
+      setFilters(newFilter)
+      setFilteredGames(games)
     }
+  }
 
-    setGames(newArr)
+  const filterGameMode = (e) => {
+    const newFilter = { gameMode: e.target.value, genre: '', coop: '' }
+    if (e.target.value !== '') {
+      setFilteredGames(games
+        .filter((game) => game.game_modes.some((mode) => mode.name === e.target.value)))
+
+      setFilters(newFilter)
+    } else {
+      setFilters(newFilter)
+      setFilteredGames(games)
+    }
+  }
+
+
+  const filterCoop = (e) => {
+    const newFilter = { coop: e.target.value, genre: '', gameMode: '' }
+    switch (e.target.value) {
+    case 'Campaign Coop':
+      setFilteredGames(games
+        .filter((game) => game.multiplayer_modes)
+        .filter((game) => game.multiplayer_modes[0].campaigncoop === true))
+      setFilters(newFilter)
+      break
+
+    case 'Offline Coop':
+      setFilteredGames(games
+        .filter((game) => game.multiplayer_modes)
+        .filter((game) => game.multiplayer_modes[0].offlinecoop === true))
+      setFilters(newFilter)
+      break
+
+    case 'Online Coop':
+      setFilteredGames(games
+        .filter((game) => game.multiplayer_modes)
+        .filter((game) => game.multiplayer_modes[0].onlinecoop === true))
+      setFilters(newFilter)
+      break
+
+    default:
+      setFilteredGames(games)
+      setFilters(newFilter)
+    }
+  }
+
+  const sortList = (e) => {
+    if (e.target.value !== '') {
+      if (e.target.value === 'release') {
+        filteredGames.sort((a, b) => (b.first_release_date - a.first_release_date))
+        setSort('release')
+      }
+
+      if (e.target.value === 'rating') {
+        filteredGames.sort((a, b) => (b.total_rating - a.total_rating))
+        setSort('rating')
+      }
+
+      const sortedArr = [...filteredGames]
+      setFilteredGames(sortedArr)
+    } else {
+      console.log('else')
+      setSort('')
+    }
   }
 
   useEffect(() => {
     getAll()
-  }, [sort, platform])
+    setSort('')
+  }, [platform])
 
+  useEffect(() => {
+    setSort('')
+  }, [filters])
 
   return (
     <>
       <NavBar />
       <Container className="contentWrapper">
+        <select value={filters.coop} onChange={filterCoop}>
+          <option defaultValue value="">Coop Mode</option>
+          {coopModes.map((mode) => (
+            <option key={mode} value={mode}>{mode}</option>
+          ))}
+        </select>
 
-        <select value={sort} onChange={(e) => setSort(e.currentTarget.value)}>
+        <select value={filters.genre} onChange={filterGenre}>
+          <option value="">All genres</option>
+          {genres.map((genre) => (
+            <option key={genre} value={genre}>{genre}</option>
+          ))}
+        </select>
+
+        <select value={filters.gameMode} onChange={filterGameMode}>
+          <option value="">All game modes</option>
+          {gameModes.map((mode) => (
+            <option key={mode} value={mode}>{mode}</option>
+          ))}
+        </select>
+
+        <select value={sort} onChange={sortList}>
+          <option value="">Sort</option>
           <option value="release">Release date</option>
           <option value="rating">Rating</option>
         </select>
@@ -109,7 +214,7 @@ const Index = () => {
           ))}
       </Container>
       <JwPagination
-        items={games}
+        items={filteredGames}
         onChangePage={onChangePage}
         pageSize={10}
         maxPages={3}
