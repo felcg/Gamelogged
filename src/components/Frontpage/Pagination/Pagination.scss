@@ -2,6 +2,8 @@
     justify-content: center;
     padding-bottom: 1rem;
     margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: 600;
 
     .page-link {
         cursor: pointer;
@@ -9,7 +11,7 @@
         font-size: 0.875rem;
         line-height: 1.5;
         border: none;
-        color: #6982ff;
+        color: #586294;
     
         &:focus {
             outline: none;
@@ -18,14 +20,14 @@
     
         &:hover {
             color: white;
-            background-color: #6982ff;
+            background-color: #586294;
         }
     }
     
     .page-item.active .page-link {
         z-index: 3;
         color: #fff;
-        background-color: #6982ff;
+        background-color: #586294;
     }
 }
 

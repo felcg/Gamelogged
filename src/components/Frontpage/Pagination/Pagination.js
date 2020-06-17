@@ -1,5 +1,6 @@
 import React from 'react'
 import JwPagination from 'jw-react-pagination'
+import './Pagination.scss'
 
 const Pagination = ({ filteredGames, setPageOfGames }) => {
   function onChangePage(pageOfGames) {

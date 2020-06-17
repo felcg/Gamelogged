@@ -6,8 +6,8 @@ import './NavBar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const NavBar = () => (
-  <Navbar fixed="top" expand="lg" id="mainNav">
-    <Container>
+  <Navbar fixed="top" expand="sm" id="mainNav">
+    <Container className="navContainer">
       <Navbar.Brand href="#home">gamelogged</Navbar.Brand>
       <FontAwesomeIcon icon={['fas', 'search']} className="NavItem Search" />
       <Button className="NavItem">LOGIN</Button>
@@ -18,8 +18,10 @@ const NavBar = () => (
           <Nav.Item>
             <Nav.Link className="text-upper nav-item" href="#services">PROFILE</Nav.Link>
           </Nav.Item>
+
         </Nav>
       </Navbar.Collapse>
+
     </Container>
   </Navbar>
 )

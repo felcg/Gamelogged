@@ -9,8 +9,9 @@ import Platforms from './Platforms/Platforms'
 import PageOfGames from './PageOfGames/PageOfGames'
 import Filters from './Filters/Filters'
 import Pagination from './Pagination/Pagination'
+import Footer from '../Footer/Footer'
 
-import './Index.scss'
+import './Frontpage.scss'
 
 
 const Index = () => {
@@ -77,6 +78,7 @@ const Index = () => {
         <PageOfGames pageOfGames={pageOfGames} platform={platform} />
       </Container>
       <Pagination filteredGames={filteredGames} setPageOfGames={setPageOfGames} />
+      <Footer />
     </>
   )
 }

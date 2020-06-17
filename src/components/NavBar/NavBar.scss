@@ -1,39 +1,56 @@
 .navbar {
-    background: #6982ff;
+    background: #263659;
     box-shadow: 1px 1px 1px 0px #6990ff21;
 
     button {
         font-size: .8rem;
         background: transparent;
         border: none;
-        padding: .1rem;
+        padding: .5rem;
     }
 
     button:hover {
-        background: #f8f8ff
+        background: #586294
     }
 }
 
 .navbar-light .navbar-brand {
-    color:#f8f8ff
+    color:#f8f8f8;
+
+    &:hover {
+        color: #f8f8f8;
+    }
+}
+
+.navbar-collapse {
+    flex-grow: 0;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #f8f8ff;
+    color: #f8f8f8;
+
+    &:hover {
+        color: #586294;
+    }
 }
 
 .navbar-toggler {
     padding: 0;
     font-size: 1rem;
     border: none;
-    color: #f8f8ff
+    color: #f8f8f8
 }
 
 .NavItem {
     margin: auto .2rem;
-    color: #f8f8ff
+    color: #f8f8f8
 }
 
 .Search {
     margin-left: auto;
+}
+
+.navContainer {
+    margin: 0;
+    max-width: 100%;
 }
