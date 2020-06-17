@@ -12,7 +12,7 @@ const NavBar = () => (
       <FontAwesomeIcon icon={['fas', 'search']} className="NavItem Search" />
       <Button className="NavItem">LOGIN</Button>
       <Button className="NavItem">SIGNUP</Button>
-      <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-light" />
+      <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
       <Navbar.Collapse className="justify-content-end" id="links-navbar">
         <Nav>
           <Nav.Item>
