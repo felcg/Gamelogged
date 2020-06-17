@@ -1,5 +1,5 @@
 .navbar {
-    background: #f8f8ff;
+    background: #6982ff;
     box-shadow: 1px 1px 1px 0px #6990ff21;
 
     button {
@@ -8,26 +8,30 @@
         border: none;
         padding: .1rem;
     }
+
+    button:hover {
+        background: #f8f8ff
+    }
 }
 
 .navbar-light .navbar-brand {
-    color:#5d78ff
+    color:#f8f8ff
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #5d78ff;
+    color: #f8f8ff;
 }
 
 .navbar-toggler {
     padding: 0;
     font-size: 1rem;
     border: none;
-    color: #5d78ff
+    color: #f8f8ff
 }
 
 .NavItem {
     margin: auto .2rem;
-    color: #5d78ff
+    color: #f8f8ff
 }
 
 .Search {
