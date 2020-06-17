@@ -11,7 +11,7 @@
         font-size: 0.875rem;
         line-height: 1.5;
         border: none;
-        color: #586294;
+        color: #747fb3;
     
         &:focus {
             outline: none;
@@ -20,14 +20,18 @@
     
         &:hover {
             color: white;
-            background-color: #586294;
+            background-color: #747fb3;
         }
+    }
+
+    .page-item .page-link{
+        background-color: #18181b;
     }
     
     .page-item.active .page-link {
         z-index: 3;
         color: #fff;
-        background-color: #586294;
+        background-color: #747fb3;
     }
 }
 

@@ -1,17 +1,13 @@
 .GameCard {
     border: none;
-    border-bottom: 1px solid #dbe9f5;
     border-radius: 0;
     margin-bottom: 1rem;
-    padding-top: 0.5rem;
+    padding: 1rem;
+    background-color: #18181b;
 
     img {
         height: auto;
         width: 30%;
-    }
-
-    h4 {
-        color: #0088ff;
     }
 
     .GameNameContainer {
@@ -22,14 +18,15 @@
         .GameName {
             font-family: 'Lato', sans-serif;
             width: 100%;
+            color: #d7d7d9;
         }
 
         .LinkIcon {
             margin-left: auto;
-            color: #6982ff;
+            color: #747fb3;
         }
         .GameRating {
-            background: #1fbb87;
+            background: #404046;
             height: 50px;
             width: 50px;
             border-radius: 10%;
@@ -40,7 +37,7 @@
                 height: 50px;
                 line-height: 50px;
                 white-space: nowrap;
-                color: white;
+                color: #949494;
                 font-size: 1.5rem;
             }
         }
@@ -62,7 +59,7 @@
                 overflow: hidden;
                 padding-left: .5rem;
                 font-size: 14px;
-                color: #707070;
+                color: #d7d7d9;
             }
  
         }
@@ -83,9 +80,9 @@
             span {
                 margin-left: 2px;
             }
-            background-color: #f8f8ff;
+            background-color: #747fb3;
             border: none;
-            color: #586294;
+            color: #d7d7d9;
         }
     }
      
