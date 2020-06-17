@@ -46,7 +46,16 @@ const Index = () => {
       return null
     })
 
-    const removeUpcoming = newArr
+    const finalArr = [...newArr]
+
+    finalArr.map((game) => {
+      if (game.total_rating === undefined) {
+        game.total_rating = null
+      }
+      return null
+    })
+
+    const removeUpcoming = finalArr
       .filter((g) => g.first_release_date < today)
       .sort((a, b) => (b.first_release_date - a.first_release_date))
 

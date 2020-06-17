@@ -7,13 +7,13 @@ const Sort = ({
   const sortList = (e) => {
     if (e.target.value !== '') {
       if (e.target.value === 'release') {
-        filteredGames.sort((a, b) => (b.first_release_date - a.first_release_date))
         setSort('release')
+        filteredGames.sort((a, b) => (b.first_release_date - a.first_release_date))
       }
 
       if (e.target.value === 'rating') {
-        filteredGames.sort((a, b) => (b.total_rating - a.total_rating))
         setSort('rating')
+        filteredGames.sort((a, b) => (b.total_rating - a.total_rating))
       }
 
       const sortedArr = [...filteredGames]

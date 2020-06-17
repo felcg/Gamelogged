@@ -18,27 +18,42 @@ const unixToDate = (unix) => {
   return dateObject.toLocaleDateString()
 }
 
-const GameCard = ({ game }) => (
-  <Card className="GameCard" key={game.id}>
-    <div className="GameNameContainer">
-      <h5 className="GameName">{game.name} </h5>
-      <div className="GameRating">
-        {game.total_rating != null && <span>{game.total_rating.toFixed()}</span>}
+const GameCard = ({ game }) => {
+  let color = ''
+  switch (true) {
+  case (game.total_rating > 70):
+    color = '#1fbb87'
+    break
+  case (game.total_rating > 40):
+    color = '#fab822'
+    break
+  case (game.total_rating < 40):
+    color = '#fb397a'
+    break
+  default:
+    break
+  }
+  return (
+    <Card className="GameCard" key={game.id}>
+      <div className="GameNameContainer">
+        <h5 className="GameName">{game.name} </h5>
+        <div className="GameRating">
+          {game.total_rating != null ? <span style={{ color: `${color}` }}>{game.total_rating.toFixed()}</span> : <span>NA</span>}
+        </div>
       </div>
-    </div>
-    <div className="CoverAndInfo">
-      {game.cover
-        ? <img src={game.cover.url} alt={`cover of the game ${game.name}`} />
-        : <div>No Image Yet</div>}
-      <div className="GameInfo">
-        <div className="GameSummary">{game.summary}</div>
+      <div className="CoverAndInfo">
+        {game.cover
+          ? <img src={game.cover.url} alt={`cover of the game ${game.name}`} />
+          : <div>No Image Yet</div>}
+        <div className="GameInfo">
+          <div className="GameSummary">{game.summary}</div>
+        </div>
+
       </div>
+      <div className="ReleaseDateAndButton">
+        {game.first_release_date && <div className="ReleaseDate">{unixToDate(game.first_release_date)}</div>}
 
-    </div>
-    <div className="ReleaseDateAndButton">
-      {game.first_release_date && <div className="ReleaseDate">{unixToDate(game.first_release_date)}</div>}
-
-      {/* {game.time_to_beat && (
+        {/* {game.time_to_beat && (
         <div className="TimeToBeat">
           Time to beat:
           {game.time_to_beat.completely !== 0
@@ -56,13 +71,14 @@ const GameCard = ({ game }) => (
       )} */}
 
 
-      <Button>
-        <span>Info <FontAwesomeIcon className="LinkIcon" icon={['fas', 'external-link-alt']} /></span>
-      </Button>
+        <Button>
+          <span>Info <FontAwesomeIcon className="LinkIcon" icon={['fas', 'external-link-alt']} /></span>
+        </Button>
 
-    </div>
+      </div>
 
-  </Card>
-)
+    </Card>
+  )
+}
 
 export default GameCard
