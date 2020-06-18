@@ -7,7 +7,7 @@
 
     img {
         height: auto;
-        width: 30%;
+        width: 40%;
     }
 
     .GameNameContainer {
@@ -70,7 +70,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: .5rem 0;
 
         .ReleaseDate {
             font-family: 'Roboto Slab', serif;
@@ -87,8 +86,10 @@
         }
     }
      
-    
-    
-
-    
 }
+
+@media (min-width: 768px) { 
+    .GameCard {
+        margin-right: 1rem;
+    }
+ }

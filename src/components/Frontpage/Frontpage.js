@@ -76,16 +76,19 @@ const Index = () => {
     <>
       <NavBar />
       <Container className="contentWrapper">
-        <Container className="filterContainer filterTop">
-          <Sort sort={sort} filteredGames={filteredGames}
-            setSort={setSort} setFilteredGames={setFilteredGames}
-          />
-          <Platforms platform={platform} setPlatform={setPlatform} name="All Platforms" />
-        </Container>
-        <Container className="filterContainer filterBottom">
-          <Filters setFilteredGames={setFilteredGames} setFilters={setFilters} games={games}
-            filters={filters}
-          />
+        <Container className="filtersContainer">
+          <Container className="filterContainer filterTop">
+            <Sort sort={sort} filteredGames={filteredGames}
+              setSort={setSort} setFilteredGames={setFilteredGames}
+            />
+            <Platforms platform={platform} setPlatform={setPlatform} name="All Platforms" />
+
+          </Container>
+          <Container className="filterContainer filterBottom">
+            <Filters setFilteredGames={setFilteredGames} setFilters={setFilters} games={games}
+              filters={filters}
+            />
+          </Container>
         </Container>
         <PageOfGames pageOfGames={pageOfGames} platform={platform} />
       </Container>
