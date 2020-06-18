@@ -7,8 +7,8 @@
 
     .page-link {
         cursor: pointer;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.875rem;
+        padding: 0.5rem 0.4rem;
+        font-size: 0.9rem;
         line-height: 1.5;
         border: none;
         color: #747fb3;
@@ -35,3 +35,11 @@
     }
 }
 
+@media (min-width: 768px) { 
+    .pagination {
+        .page-link {
+            padding: .6rem;
+            font-size: 1rem;
+        }
+    }
+ }

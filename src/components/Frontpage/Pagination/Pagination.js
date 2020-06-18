@@ -15,8 +15,8 @@ const Pagination = ({ filteredGames, setPageOfGames }) => {
   }
 
   return (
-    <JwPagination items={filteredGames} onChangePage={onChangePage} pageSize={10}
-      maxPages={3} disableDefaultStyles labels={customLabels}
+    <JwPagination items={filteredGames} onChangePage={onChangePage} pageSize={12}
+      maxPages={5} disableDefaultStyles labels={customLabels}
     />
   )
 }
