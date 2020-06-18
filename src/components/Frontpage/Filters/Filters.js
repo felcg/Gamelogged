@@ -4,6 +4,7 @@ import {
   genres, gameModes, coopModes,
 } from './filterlist'
 
+
 const Filters = ({
   setFilteredGames, setFilters, games, filters,
 }) => {
@@ -71,19 +72,20 @@ const Filters = ({
   }
 
   return (
-    <div>
-      <Select value={filters.coop} onChange={filterCoop} collection={coopModes}
-        name="All Coop Modes"
-      />
-
+    <>
       <Select value={filters.genre} onChange={filterGenre} collection={genres}
         name="All Genres"
+      />
+
+      <Select value={filters.coop} onChange={filterCoop} collection={coopModes}
+        name="All Coop Modes"
       />
 
       <Select value={filters.gameMode} onChange={filterGameMode} collection={gameModes}
         name="All Game Modes"
       />
-    </div>
+
+    </>
   )
 }
 

@@ -9,7 +9,6 @@ import Platforms from './Platforms/Platforms'
 import PageOfGames from './PageOfGames/PageOfGames'
 import Filters from './Filters/Filters'
 import Pagination from './Pagination/Pagination'
-import Footer from '../Footer/Footer'
 
 import './Frontpage.scss'
 
@@ -77,17 +76,20 @@ const Index = () => {
     <>
       <NavBar />
       <Container className="contentWrapper">
-        <Filters setFilteredGames={setFilteredGames} setFilters={setFilters} games={games}
-          filters={filters}
-        />
-        <Sort sort={sort} filteredGames={filteredGames}
-          setSort={setSort} setFilteredGames={setFilteredGames}
-        />
-        <Platforms platform={platform} setPlatform={setPlatform} name="All Platforms" />
+        <Container className="filterContainer filterTop">
+          <Sort sort={sort} filteredGames={filteredGames}
+            setSort={setSort} setFilteredGames={setFilteredGames}
+          />
+          <Platforms platform={platform} setPlatform={setPlatform} name="All Platforms" />
+        </Container>
+        <Container className="filterContainer filterBottom">
+          <Filters setFilteredGames={setFilteredGames} setFilters={setFilters} games={games}
+            filters={filters}
+          />
+        </Container>
         <PageOfGames pageOfGames={pageOfGames} platform={platform} />
       </Container>
       <Pagination filteredGames={filteredGames} setPageOfGames={setPageOfGames} />
-      <Footer />
     </>
   )
 }

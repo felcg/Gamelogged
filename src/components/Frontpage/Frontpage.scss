@@ -1,3 +1,59 @@
 .contentWrapper {
     padding-top: 5rem;
 }
+
+.filterContainer {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: .5rem;
+
+    select {
+        padding: .3rem;
+        padding-right: 1.5rem;
+        background: #18181b;
+        color: #d1d1d3;
+        margin-right: 1rem;
+        border: none;
+        width: 150px;
+        max-width: 200px;
+        text-transform: capitalize;
+        background: url(https://img.icons8.com/material-outlined/16/d1d1d3/down-squared.png) no-repeat right #18181b;
+        -webkit-appearance: none;
+        -moz-appearance:none;
+
+        &:focus {
+            outline: none;
+        }
+
+        option {
+            font-size: 13px;
+            border: none;
+            text-transform: capitalize;
+        }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 10px;
+            height: 8px;
+            background: #d7d7d9
+            
+        }
+        
+        .scrollbar::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scrollbar::-webkit-scrollbar-thumb {
+            background-color: #404046;
+            outline: 1px solid white;
+        }
+
+    }
+
+    
+    
+}
+
+.filterBottom {
+    padding-bottom: .5rem;
+    margin-bottom: 1rem;
+}

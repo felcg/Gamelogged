@@ -24,10 +24,10 @@ const GameCard = ({ game }) => {
   case (game.total_rating > 70):
     color = '#1fbb87'
     break
-  case (game.total_rating > 40):
+  case (game.total_rating >= 40):
     color = '#fab822'
     break
-  case (game.total_rating < 40):
+  case (game.total_rating < 39):
     color = '#fb397a'
     break
   default:

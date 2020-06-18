@@ -1,4 +1,5 @@
 import React from 'react'
+import './Platforms.scss'
 
 export const platforms = [
   { slug: 'win', name: 'PC' },
@@ -38,12 +39,15 @@ export const platforms = [
 const Platforms = ({
   platform, setPlatform, name,
 }) => (
-  <select value={platform} onChange={(e) => setPlatform(e.currentTarget.value)}>
-    <option defaultValue value="">{name}</option>
-    {platforms.map((p) => (
-      <option key={p.slug} value={p.slug}>{p.name}</option>
-    ))}
-  </select>
+  <>
+    <select value={platform} onChange={(e) => setPlatform(e.currentTarget.value)}>
+      <option defaultValue value="">{name}</option>
+      {platforms.map((p) => (
+        <option className="platformOption" key={p.slug} value={p.slug}>{p.name}</option>
+      ))}
+    </select>
+  </>
+
 )
 
 export default Platforms
