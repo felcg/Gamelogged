@@ -2,12 +2,12 @@
     justify-content: center;
     padding-bottom: 1rem;
     margin-bottom: 0;
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-weight: 600;
 
     .page-link {
         cursor: pointer;
-        padding: 0.5rem 0.4rem;
+        padding: 0.5rem;
         font-size: 0.9rem;
         line-height: 1.5;
         border: none;
@@ -38,7 +38,7 @@
 @media (min-width: 768px) { 
     .pagination {
         .page-link {
-            padding: .6rem;
+            padding: .5rem;
             font-size: 1rem;
         }
     }
