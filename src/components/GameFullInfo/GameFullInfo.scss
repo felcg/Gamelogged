@@ -1,0 +1,160 @@
+.GameFullInfoContainer {
+    padding-top: 5rem;
+
+    h1 {
+        color: #d7d7d9;
+        font-size: 2rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+        color: #747fa4;
+    }
+
+    .MainInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        div {
+            margin-bottom: .5rem;
+        }
+
+
+        .FirstBlock {
+            background: #18181b;  
+            width: 100%;  
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+
+            .ReleaseDate {
+                color: #d7d7d9;
+                font-weight: 300;
+            }
+
+            .GameRating {
+                background: #404046;
+                height: 70px;
+                min-width: 70px;
+                margin-left: auto;
+                text-align: center;
+        
+                span {
+                    height: 80px;
+                    line-height: 65px;
+                    white-space: nowrap;
+                    color: #949494;
+                    font-size: 3rem;
+                }
+            }
+
+        }
+        
+        .SecondBlock {
+            display: flex;
+
+            .ImageDiv {    
+                img {
+                    width: 80%
+                }
+            }
+
+            ul {
+                list-style: none;
+                color: #d7d7d9;
+                padding: 0;
+            }
+        }
+        
+    }
+
+    .PlatformContainer {
+        margin-top: 1rem;
+        
+        h5 {
+            font-size: 1rem;
+            color: #747fa4;
+        }
+        
+        .PlatformList {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            margin-bottom: .5rem;
+    
+            .Platform {
+                flex: 0 0 auto;
+                margin: 0 .5rem;
+                color: #d7d7d9;
+            }
+        }
+    }
+
+    .TimeToBeat, .CompanyContainer {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        
+        p {
+            color: #d7d7d9;
+            margin-bottom: 0;
+        }
+    }
+
+    .DevelopersList, .PublisherList {
+        margin-bottom: 1rem;
+    }
+
+    .Summary {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        padding: 1rem;
+        background: #18181b;
+        color: #d7d7d9;
+        h4 { 
+            font-size: 20px
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+    }
+
+    .ScreenshotContainer {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        .ScreenshotList {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            margin-bottom: .5rem;
+    
+            .Screenshot {
+                flex: 0 0 auto;
+                margin: .5rem;
+                color: #d7d7d9;
+            }
+        }
+    }
+
+    .VideosContainer {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        .VideoList {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .Video {
+            flex: 0 0 auto;
+            margin: .5rem;
+        }
+    }
+    
+}
