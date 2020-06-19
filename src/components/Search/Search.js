@@ -34,8 +34,7 @@ const Search = () => {
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+        <input type="text"
           placeholder="Search"
           value={searchTerm}
           onChange={handleChange}

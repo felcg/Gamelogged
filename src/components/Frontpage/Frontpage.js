@@ -3,7 +3,6 @@ import axios from 'axios'
 
 import { Container } from 'react-bootstrap'
 
-import NavBar from '../NavBar/NavBar'
 import Sort from './Sort/Sort'
 import Platforms from './Platforms/Platforms'
 import PageOfGames from './PageOfGames/PageOfGames'
@@ -74,7 +73,6 @@ const Index = () => {
 
   return (
     <>
-      <NavBar />
       <Container className="contentWrapper">
         <Container className="filtersContainer">
           <Container className="filterContainer filterTop">
