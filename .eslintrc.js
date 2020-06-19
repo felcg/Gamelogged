@@ -35,11 +35,8 @@ indent: ["error", 2],
     "react/require-default-props": "off",
     "react-hooks/exhaustive-deps": "off",
     'react/jsx-first-prop-new-line': ["error", 'never'],
-        'react/jsx-max-props-per-line': ["error",
-            {
-                'maximum': 3
-            }
-        ]
+    'react/jsx-max-props-per-line': ["error", { 'maximum': 3}],
+    "import/no-unresolved": "off"
     
   },
 };
