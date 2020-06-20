@@ -11,100 +11,132 @@
         color: #747fa4;
     }
 
-    .MainInfo {
+}
+
+    .FirstBlock {
+        background: #18181b;  
+        width: 100%;  
+        padding: 1rem;
+        margin-bottom: 1rem;
         display: flex;
-        flex-direction: column;
-        align-items: center;
 
-        div {
-            margin-bottom: .5rem;
+        .ReleaseDate {
+            color: #d7d7d9;
+            font-weight: 300;
         }
 
-
-        .FirstBlock {
-            background: #18181b;  
-            width: 100%;  
-            padding: 1rem;
-            margin-bottom: 1rem;
-            display: flex;
-
-            .ReleaseDate {
-                color: #d7d7d9;
-                font-weight: 300;
-            }
-
-            .GameRating {
-                background: #404046;
-                height: 70px;
-                min-width: 70px;
-                margin-left: auto;
-                text-align: center;
-        
-                span {
-                    height: 80px;
-                    line-height: 65px;
-                    white-space: nowrap;
-                    color: #949494;
-                    font-size: 3rem;
-                }
-            }
-
-        }
-        
-        .SecondBlock {
-            display: flex;
-
-            .ImageDiv {    
-                img {
-                    width: 80%
-                }
-            }
-
-            ul {
-                list-style: none;
-                color: #d7d7d9;
-                padding: 0;
+        .GameRating {
+            background: #404046;
+            height: 70px;
+            min-width: 70px;
+            margin-left: auto;
+            text-align: center;
+    
+            span {
+                height: 80px;
+                line-height: 65px;
+                white-space: nowrap;
+                color: #949494;
+                font-size: 3rem;
             }
         }
+
+    }
         
+    .ImageDiv {  
+        display: flex;
+        margin-bottom: 1rem;  
+        justify-content: center;
     }
 
-    .PlatformContainer {
+    
+        
+    .InfoContainer, .TimeToBeat {
         margin-top: 1rem;
+        margin-bottom: 1rem;
         
         h5 {
             font-size: 1rem;
             color: #747fa4;
         }
+
+        ul {
+            list-style: none;
+            color: #d7d7d9;
+            padding: 0;
+        }
+
+        p {
+            color: #d7d7d9;
+            margin-bottom: 0;
+        }
         
         .PlatformList {
+            // display: flex;
+            // flex-wrap: nowrap;
+            // overflow-x: auto;
+            margin-bottom: .5rem;
+    
+            .Platform {
+                flex: 0 0 auto;
+                margin-right: .5rem;
+                color: #d7d7d9;
+            }
+        }
+
+        .CompaniesList {
+            margin-bottom: 1rem;
+        }
+
+        .ScreenshotList {
             display: flex;
             flex-wrap: nowrap;
             overflow-x: auto;
             margin-bottom: .5rem;
     
-            .Platform {
+            .Screenshot {
                 flex: 0 0 auto;
-                margin: 0 .5rem;
+                margin: .5rem;
                 color: #d7d7d9;
+                height: 100px;
+            }
+        }
+
+        .VideoList {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .Video {
+            flex: 0 0 auto;
+            margin: .5rem;
+        }
+
+        .SimilarGamesList {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .SimilarGame {
+            flex: 0 0 auto;
+            margin: .5rem;
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+
+            p {
+                color: #d7d7d9;
+                max-width: 100px;
             }
         }
     }
-
-    .TimeToBeat, .CompanyContainer {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        
-        p {
-            color: #d7d7d9;
-            margin-bottom: 0;
-        }
-    }
-
-    .DevelopersList, .PublisherList {
-        margin-bottom: 1rem;
-    }
-
+    
     .Summary {
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -125,36 +157,43 @@
     .ScreenshotContainer {
         margin-top: 1rem;
         margin-bottom: 1rem;
-
-        .ScreenshotList {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            margin-bottom: .5rem;
-    
-            .Screenshot {
-                flex: 0 0 auto;
-                margin: .5rem;
-                color: #d7d7d9;
-            }
-        }
     }
 
     .VideosContainer {
         margin-top: 1rem;
         margin-bottom: 1rem;
+    }
 
-        .VideoList {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            margin-bottom: 0.5rem;
+    .SimilarGamesContainer {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .ModalContainer {
+        margin: 0 auto;
+        
+        .modal-dialog {
+            max-width: 1000px;
         }
-
-        .Video {
-            flex: 0 0 auto;
-            margin: .5rem;
+        .ModalImage {
+            max-width: 100%;
         }
     }
     
-}
+    
+@media (min-width: 992px) { 
+    .MainInfoContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .Summary {
+        flex: 0 0 70%;
+        margin-left: auto;
+        margin-top: 0;
+    }
+
+    .InfoContainer {
+        flex: 0 0 25%;
+    }
+ }

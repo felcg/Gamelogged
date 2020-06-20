@@ -7,6 +7,7 @@
 
     img {
         height: auto;
+        max-height: 160px;
         width: 40%;
     }
 
@@ -77,12 +78,13 @@
         }
 
         button {
+            color: #d7d7d9;
             span {
-                margin-left: 2px;
+                margin-left: 2px; 
+                color: #d7d7d9; 
             }
             background-color: #747fb3;
             border: none;
-            color: #d7d7d9;
         }
     }
      
