@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const NavBar = () => (
   <Navbar fixed="top" expand="sm" id="mainNav">
     <Container className="navContainer">
-      <Navbar.Brand href="#home">gamelogged</Navbar.Brand>
+      <Navbar.Brand href="/">gamelogged</Navbar.Brand>
       <FontAwesomeIcon icon={['fas', 'search']} className="NavItem Search" />
       <Button className="NavItem">LOGIN</Button>
       <Button className="NavItem">SIGNUP</Button>
