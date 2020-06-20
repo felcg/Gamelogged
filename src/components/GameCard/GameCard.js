@@ -46,8 +46,7 @@ const GameCard = ({ game }) => {
         {game.first_release_date && <div className="ReleaseDate">{unixToDate(game.first_release_date)}</div>}
 
         <Button>
-          <span>Info <FontAwesomeIcon className="LinkIcon" icon={['fas', 'external-link-alt']} /></span>
-          <Link to={`/games/${game.id}`}>Info</Link>
+          <Link to={`/games/${game.id}`}><span>Info <FontAwesomeIcon className="LinkIcon" icon={['fas', 'external-link-alt']} /></span></Link>
         </Button>
       </div>
     </Card>
