@@ -1,5 +1,8 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 import { Container } from 'react-bootstrap'
 
@@ -8,89 +11,105 @@ import Platforms from './Platforms/Platforms'
 import PageOfGames from './PageOfGames/PageOfGames'
 import Filters from './Filters/Filters'
 import Pagination from './Pagination/Pagination'
+import NiceButton from '../Test/NiceButton'
 
 import './Frontpage.scss'
 
 
 const Index = () => {
   const initialFilters = { genre: '', coop: '', gameMode: '' }
-  const [games, setGames] = useState([])
-  const [filteredGames, setFilteredGames] = useState(games)
-  const [pageOfGames, setPageOfGames] = useState([])
   const [platform, setPlatform] = useState('')
   const [filters, setFilters] = useState(initialFilters)
   const [sort, setSort] = useState('')
-  const baseUrl = 'http://localhost:3001/api/'
+  const [isLoading, setIsLoading] = useState(true)
+  const [pager, setPager] = useState([])
+  const [pageOfItems, setPageOfItems] = useState([])
+  const baseUrl = 'https://guarded-mesa-01224.herokuapp.com/api/'
+  // const baseUrl = 'http://localhost:3001/api/'
 
-
-  const getAll = async () => {
-    const today = Date.now() / 1000
-    let request = ''
+  const loadPage = async () => {
+    const params = new URLSearchParams(location.search)
+    const page = parseInt(params.get('page'), 10) || 1
 
     if (platform !== '') {
-      request = await axios.get(`${baseUrl}platform/${platform}`)
-    } else {
-      request = await axios.get(`${baseUrl}games`)
+      const request = await axios.get(`${baseUrl}platform/${platform}?page=${page}&sort=${sort}`)
+      setPager(request.data.pager)
+      setPageOfItems(request.data.pageOfItems)
+      setIsLoading(false)
     }
 
-    const newArr = [...request.data]
-
-    newArr.map((game) => {
-      if (game.cover) {
-        game.cover.url = game.cover.url.split('/')
-        game.cover.url[6] = 't_cover_big'
-        game.cover.url = game.cover.url.join('/')
-      }
-      return null
-    })
-
-    const finalArr = [...newArr]
-
-    finalArr.map((game) => {
-      if (game.total_rating === undefined) {
-        game.total_rating = null
-      }
-      return null
-    })
-
-    const removeUpcoming = finalArr
-      .filter((g) => g.first_release_date < today)
-      .sort((a, b) => (b.first_release_date - a.first_release_date))
-
-    setGames(removeUpcoming)
-    setFilteredGames(removeUpcoming)
+    if (page !== pager.currentPage || sort !== '') {
+      const request = await axios.get(`${baseUrl}games?page=${page}&sort=${sort}`)
+      setPager(request.data.pager)
+      setPageOfItems(request.data.pageOfItems)
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
-    getAll()
-    setSort('')
-    setFilters(initialFilters)
-  }, [platform])
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 100)
+    }
+  }, [isLoading])
 
   useEffect(() => {
-    setSort('')
-  }, [filters])
+    loadPage()
+    console.log(sort)
+  }, [sort, platform])
+
 
   return (
     <>
-      <Container className="contentWrapper">
-        <Container className="filtersContainer">
-          <Container className="filterContainer filterTop">
-            <Sort sort={sort} filteredGames={filteredGames}
-              setSort={setSort} setFilteredGames={setFilteredGames}
-            />
-            <Platforms platform={platform} setPlatform={setPlatform} name="All Platforms" />
+      (
+      <NiceButton isLoading={isLoading} onClick={() => setIsLoading(true)}>
+        <>
+          <Container className="contentWrapper">
+            <Container className="filtersContainer">
+              <Container className="filterContainer filterTop">
+                <Sort sort={sort}
+                  setSort={setSort}
+                  loadPage={loadPage}
+                />
+                <Platforms platform={platform} setPlatform={setPlatform} name="All Platforms" />
 
+              </Container>
+              <Container className="filterContainer filterBottom">
+                <Filters setFilters={setFilters}
+                  filters={filters}
+                />
+              </Container>
+            </Container>
+            <PageOfGames pageOfGames={pageOfItems} platform={platform} />
           </Container>
-          <Container className="filterContainer filterBottom">
-            <Filters setFilteredGames={setFilteredGames} setFilters={setFilters} games={games}
-              filters={filters}
-            />
-          </Container>
-        </Container>
-        <PageOfGames pageOfGames={pageOfGames} platform={platform} />
-      </Container>
-      <Pagination filteredGames={filteredGames} setPageOfGames={setPageOfGames} />
+
+
+          {pager.pages && pager.pages.length
+          && (
+            <ul className="pagination">
+              <li className={`page-item first-item ${pager.currentPage === 1 ? 'disabled' : ''}`}>
+                <Link to={{ search: '?page=1' }} className="page-link">First</Link>
+              </li>
+              <li className={`page-item previous-item ${pager.currentPage === 1 ? 'disabled' : ''}`}>
+                <Link to={{ search: `?page=${pager.currentPage - 1}` }} className="page-link">Previous</Link>
+              </li>
+              {pager.pages.map((page) => (
+                <li key={page} className={`page-item number-item ${pager.currentPage === page ? 'active' : ''}`}>
+                  <Link to={{ search: `?page=${page}` }} className="page-link">{page}</Link>
+                </li>
+              ))}
+              <li className={`page-item next-item ${pager.currentPage === pager.totalPages ? 'disabled' : ''}`}>
+                <Link to={{ search: `?page=${pager.currentPage + 1}` }} className="page-link">Next</Link>
+              </li>
+              <li className={`page-item last-item ${pager.currentPage === pager.totalPages ? 'disabled' : ''}`}>
+                <Link to={{ search: `?page=${pager.totalPages}` }} className="page-link">Last</Link>
+              </li>
+            </ul>
+          ) }
+        </>
+      </NiceButton>
+      )
     </>
   )
 }
