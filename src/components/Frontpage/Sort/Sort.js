@@ -2,22 +2,17 @@ import React from 'react'
 
 
 const Sort = ({
-  sort, filteredGames, setSort, setFilteredGames,
+  sort, setSort,
 }) => {
   const sortList = (e) => {
     if (e.target.value !== '') {
       if (e.target.value === 'release') {
         setSort('release')
-        filteredGames.sort((a, b) => (b.first_release_date - a.first_release_date))
       }
 
       if (e.target.value === 'rating') {
         setSort('rating')
-        filteredGames.sort((a, b) => (b.total_rating - a.total_rating))
       }
-
-      const sortedArr = [...filteredGames]
-      setFilteredGames(sortedArr)
     } else {
       setSort('')
     }
