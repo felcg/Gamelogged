@@ -1,26 +1,18 @@
 import React from 'react'
-
+import { useDispatch } from 'react-redux'
+import { sortChange } from '../../../reducers/sortReducer'
 
 const Sort = ({
-  sort, setSort,
+  sort,
 }) => {
-  const sortList = (e) => {
-    if (e.target.value !== '') {
-      if (e.target.value === 'release') {
-        setSort('release')
-      }
-
-      if (e.target.value === 'rating') {
-        setSort('rating')
-      }
-    } else {
-      setSort('')
-    }
+  const dispatch = useDispatch()
+  const changeSort = (e) => {
+    dispatch(sortChange(e.target.value))
   }
 
   return (
-    <select value={sort} onChange={sortList}>
-      <option value="">Sort</option>
+    <select value={sort} onChange={(e) => changeSort(e)}>
+      <option value="nosort">Sort</option>
       <option value="release">Release date</option>
       <option value="rating">Rating</option>
     </select>

@@ -11,6 +11,7 @@ export default () => (
     <Route exact path="/games/:gameId" component={withRouter(GameFullInfo)} />
     <Route exact path="/search" component={Search} />
     <Route exact path="/test" component={Test} />
+    <Route exact path="/platforms/:platform" component={withRouter(Frontpage)} />
     <Route exact path="/" component={withRouter(Frontpage)} />
   </Switch>
 
