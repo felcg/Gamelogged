@@ -1,10 +1,10 @@
-/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 
 import { Container } from 'react-bootstrap'
+import gameService from '../../services/games'
+
 import Sort from './Sort/Sort'
 import Platforms from './Platforms/Platforms'
 import PageOfGames from './PageOfGames/PageOfGames'
@@ -21,8 +21,7 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [pager, setPager] = useState([])
   const [pageOfItems, setPageOfItems] = useState([])
-  const baseUrl = 'https://guarded-mesa-01224.herokuapp.com/api/'
-  // const baseUrl = 'http://localhost:3001/api/'
+
 
   const location = useLocation()
   const sort = useSelector((state) => state.sort)
@@ -33,11 +32,16 @@ const Index = () => {
     const page = parseInt(params.get('page'), 10) || 1
 
     if (platform !== 'all') {
-      const request = await axios.get(`${baseUrl}platform/${platform}?page=${page}&sort=${sort}`)
-      setPager(request.data.pager)
-      setPageOfItems(request.data.pageOfItems)
+      const response = await gameService.getPlatformGames(platform, page, sort)
+      setPager(response.pager)
+      setPageOfItems(response.pageOfItems)
       setIsLoading(false)
+      return null
     }
+
+    const response = await gameService.getAllGames(page, sort)
+    setPager(response.pager)
+    setPageOfItems(response.pageOfItems)
     return null
   }
 
