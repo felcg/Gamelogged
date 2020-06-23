@@ -16,8 +16,6 @@ import './Frontpage.scss'
 
 
 const Index = () => {
-  const initialFilters = { genre: '', coop: '', gameMode: '' }
-  const [filters, setFilters] = useState(initialFilters)
   const [isLoading, setIsLoading] = useState(true)
   const [pager, setPager] = useState([])
   const [pageOfItems, setPageOfItems] = useState([])
@@ -26,20 +24,25 @@ const Index = () => {
   const location = useLocation()
   const sort = useSelector((state) => state.sort)
   const platform = useSelector((state) => state.platform)
+  const filters = useSelector((state) => state.filters)
+
 
   const loadPage = async () => {
     const params = new URLSearchParams(location.search)
     const page = parseInt(params.get('page'), 10) || 1
+    const { genre, gameMode, coopMode } = filters
 
     if (platform !== 'all') {
-      const response = await gameService.getPlatformGames(platform, page, sort)
+      const response = await gameService
+        .getPlatformGames(platform, page, sort, genre, gameMode, coopMode)
+
       setPager(response.pager)
       setPageOfItems(response.pageOfItems)
       setIsLoading(false)
       return null
     }
 
-    const response = await gameService.getAllGames(page, sort)
+    const response = await gameService.getAllGames(page, sort, genre, gameMode, coopMode)
     setPager(response.pager)
     setPageOfItems(response.pageOfItems)
     return null
@@ -55,7 +58,7 @@ const Index = () => {
 
   useEffect(() => {
     loadPage()
-  }, [sort, platform])
+  }, [sort, platform, filters])
 
   return (
     <>
@@ -69,12 +72,12 @@ const Index = () => {
                 <Platforms platform={platform} name="All Platforms" />
               </Container>
               <Container className="filterContainer filterBottom">
-                <Filters setFilters={setFilters} filters={filters} />
+                <Filters filters={filters} />
               </Container>
             </Container>
             <PageOfGames pageOfGames={pageOfItems} platform={platform} />
           </Container>
-          {pager.pages && pager.pages.length && (<Pagination pager={pager} />) }
+          <Pagination pager={pager} />
         </>
       </NiceButton>
       )
