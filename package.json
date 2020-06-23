@@ -15,8 +15,11 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-spring": "^8.0.27",
+    "redux": "^4.0.5",
     "sass": "^1.26.7"
   },
   "scripts": {
@@ -25,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "https://guarded-mesa-01224.herokuapp.com/api/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -47,6 +50,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^2.5.1"
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "redux-devtools-extension": "^2.13.8"
   }
 }
