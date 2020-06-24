@@ -13,4 +13,9 @@ const getAllGames = async (page, sort, genre, gameMode, coopMode) => {
   return response.data
 }
 
-export default { getPlatformGames, getAllGames }
+const getGame = async (id) => {
+  const response = await axios.get(`${baseUrl}game/${id}`)
+  return response.data
+}
+
+export default { getPlatformGames, getAllGames, getGame }
