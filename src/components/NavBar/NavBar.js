@@ -4,12 +4,14 @@ import {
 } from 'react-bootstrap'
 import './NavBar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Search from '../Search/Search'
 
 const NavBar = () => (
   <Navbar fixed="top" expand="sm" id="mainNav">
     <Container className="navContainer">
       <Navbar.Brand href="/">gamelogged</Navbar.Brand>
       <FontAwesomeIcon icon={['fas', 'search']} className="NavItem Search" />
+      <Search />
       <Button className="NavItem">LOGIN</Button>
       <Button className="NavItem">SIGNUP</Button>
       <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />

@@ -24,12 +24,22 @@ const Index = () => {
   const sort = useSelector((state) => state.sort)
   const platform = useSelector((state) => state.platform)
   const filters = useSelector((state) => state.filters)
+  const search = useSelector((state) => state.search)
 
   const loadPage = async () => {
     const params = new URLSearchParams(location.search)
     const page = parseInt(params.get('page'), 10) || 1
     const { genre, gameMode, coopMode } = filters
     setIsLoading(true)
+
+    if (search !== null) {
+      const response = await gameService.searchGames(search, page)
+      setPager(response.pager)
+      setPageOfItems(response.pageOfItems)
+      setIsLoading(false)
+      return null
+    }
+
     if (platform !== 'all') {
       const response = await gameService
         .getPlatformGames(platform, page, sort, genre, gameMode, coopMode)
@@ -49,21 +59,25 @@ const Index = () => {
 
   useEffect(() => {
     loadPage()
-  }, [sort, platform, filters])
+  }, [sort, platform, filters, search])
 
   return (
     <>
       (
       <Container className="contentWrapper">
-        <Container className="filtersContainer">
-          <Container className="filterContainer filterTop">
-            <Sort sort={sort} loadPage={loadPage} />
-            <Platforms platform={platform} name="All Platforms" />
-          </Container>
-          <Container className="filterContainer filterBottom">
-            <Filters filters={filters} />
-          </Container>
-        </Container>
+        {search === null
+          ? (
+            <Container className="filtersContainer">
+              <Container className="filterContainer filterTop">
+                <Sort sort={sort} loadPage={loadPage} />
+                <Platforms platform={platform} name="All Platforms" />
+              </Container>
+              <Container className="filterContainer filterBottom">
+                <Filters filters={filters} />
+              </Container>
+            </Container>
+          )
+          : <></>}
         <Loading isLoading={isLoading}>
           <PageOfGames pageOfGames={pageOfItems} platform={platform} />
           <Pagination pager={pager} />
