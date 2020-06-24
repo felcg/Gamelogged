@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { platformChange } from '../../../reducers/platformReducer'
 import { sortChange } from '../../../reducers/sortReducer'
+import { genreChange, gameModeChange, coopModeChange } from '../../../reducers/filterReducer'
 import platforms from './platformList'
 import './Platforms.scss'
 
@@ -16,6 +17,9 @@ const Platforms = ({
     const option = document.getElementById('platformSelect').selectedOptions[0].text
     dispatch(platformChange(e.target.value))
     dispatch(sortChange('nosort'))
+    dispatch(genreChange('nofilter'))
+    dispatch(gameModeChange('nofilter'))
+    dispatch(coopModeChange('nofilter'))
     history.push(`/platforms/${option}`)
   }
   return (
