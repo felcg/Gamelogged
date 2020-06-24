@@ -13,9 +13,21 @@ const getAllGames = async (page, sort, genre, gameMode, coopMode) => {
   return response.data
 }
 
+const searchGames = async (query, page) => {
+  const response = await axios.get(`${baseUrl}search/${query}?page=${page}`)
+  return response.data
+}
+
 const getGame = async (id) => {
   const response = await axios.get(`${baseUrl}game/${id}`)
   return response.data
 }
 
-export default { getPlatformGames, getAllGames, getGame }
+const getCompany = async (id) => {
+  const response = await axios.get(`${baseUrl}companies/${id}`)
+  return response.data
+}
+
+export default {
+  getPlatformGames, getAllGames, getGame, searchGames, getCompany,
+}
