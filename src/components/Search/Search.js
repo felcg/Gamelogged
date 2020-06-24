@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { searchChange } from '../../reducers/searchReducer'
 
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value)
@@ -14,6 +16,7 @@ const Search = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     dispatch(searchChange(searchTerm))
+    history.push('/')
   }
 
   return (
