@@ -10,7 +10,7 @@ import Platforms from './Platforms/Platforms'
 import PageOfGames from './PageOfGames/PageOfGames'
 import Filters from './Filters/Filters'
 import Pagination from './Pagination/Pagination'
-import NiceButton from '../Test/NiceButton'
+import Loading from '../Loader/Loading'
 
 import './Frontpage.scss'
 
@@ -20,18 +20,16 @@ const Index = () => {
   const [pager, setPager] = useState([])
   const [pageOfItems, setPageOfItems] = useState([])
 
-
   const location = useLocation()
   const sort = useSelector((state) => state.sort)
   const platform = useSelector((state) => state.platform)
   const filters = useSelector((state) => state.filters)
 
-
   const loadPage = async () => {
     const params = new URLSearchParams(location.search)
     const page = parseInt(params.get('page'), 10) || 1
     const { genre, gameMode, coopMode } = filters
-
+    setIsLoading(true)
     if (platform !== 'all') {
       const response = await gameService
         .getPlatformGames(platform, page, sort, genre, gameMode, coopMode)
@@ -45,16 +43,9 @@ const Index = () => {
     const response = await gameService.getAllGames(page, sort, genre, gameMode, coopMode)
     setPager(response.pager)
     setPageOfItems(response.pageOfItems)
+    setIsLoading(false)
     return null
   }
-
-  useEffect(() => {
-    if (isLoading) {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 100)
-    }
-  }, [isLoading])
 
   useEffect(() => {
     loadPage()
@@ -63,23 +54,21 @@ const Index = () => {
   return (
     <>
       (
-      <NiceButton isLoading={isLoading} onClick={() => setIsLoading(true)}>
-        <>
-          <Container className="contentWrapper">
-            <Container className="filtersContainer">
-              <Container className="filterContainer filterTop">
-                <Sort sort={sort} loadPage={loadPage} />
-                <Platforms platform={platform} name="All Platforms" />
-              </Container>
-              <Container className="filterContainer filterBottom">
-                <Filters filters={filters} />
-              </Container>
-            </Container>
-            <PageOfGames pageOfGames={pageOfItems} platform={platform} />
+      <Container className="contentWrapper">
+        <Container className="filtersContainer">
+          <Container className="filterContainer filterTop">
+            <Sort sort={sort} loadPage={loadPage} />
+            <Platforms platform={platform} name="All Platforms" />
           </Container>
+          <Container className="filterContainer filterBottom">
+            <Filters filters={filters} />
+          </Container>
+        </Container>
+        <Loading isLoading={isLoading}>
+          <PageOfGames pageOfGames={pageOfItems} platform={platform} />
           <Pagination pager={pager} />
-        </>
-      </NiceButton>
+        </Loading>
+      </Container>
       )
     </>
   )
