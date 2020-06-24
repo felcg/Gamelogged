@@ -25,7 +25,7 @@ const Platforms = ({
   return (
     <>
       <select id="platformSelect" value={platform} onChange={(e) => changePlatform(e)}>
-        <option defaultValue label="all" value="all">{name}</option>
+        <option defaultValue value="all">{name}</option>
         {platforms.map((p) => (
           <option className="platformOption" key={p.slug} value={p.slug}>{p.name}
           </option>
