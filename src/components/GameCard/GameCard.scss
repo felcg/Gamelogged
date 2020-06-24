@@ -86,6 +86,11 @@
             }
             background-color: #747fb3;
             border: none;
+
+            &:active:focus {
+                background-color: #747fb3;
+                box-shadow: none !important;
+            }
         }
     }
      

@@ -18,7 +18,7 @@ const SimilarGame = ({ similarGames }) => {
   return (
     <>
       {gameList.map((game) => (
-        <Link to={`/games/${game[0].id}`} key={game[0].id} className="SimilarGame">
+        <Link to={`/games/${game[0].id}`} key={game[0].id} className="SimilarGame text-decoration-none">
           {game[0].cover
             ? <img src={game[0].cover.url} alt={`cover of the game ${game[0].name}`} />
             : <div>No Image Yet</div>}

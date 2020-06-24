@@ -110,9 +110,10 @@
             margin-bottom: 0.5rem;
         }
 
-        .Video {
+        .VideoThumb {
             flex: 0 0 auto;
             margin: .5rem;
+            max-width: 350px;
         }
 
         .SimilarGamesList {
@@ -176,9 +177,13 @@
 
     .ModalContainer {
         margin: 0 auto;
+        .modal-dialog-centered {
+            justify-content: center;
+        }
         
         .modal-dialog {
             max-width: 1000px;
+            min-width: 280px;
         }
         .ModalImage {
             max-width: 100%;

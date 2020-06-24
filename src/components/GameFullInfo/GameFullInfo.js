@@ -13,8 +13,10 @@ import './GameFullInfo.scss'
 const GameInfo = () => {
   const { gameId } = useParams()
   const [game, setGame] = useState({})
-  const [show, setShow] = useState(false)
+  const [showScreenshotsModal, setShowScreenshotsModal] = useState(false)
+  const [showVideosModal, setShowVideosModal] = useState(false)
   const [carouselIndex, setCarouselIndex] = useState(0)
+  const [videoObject, setVideoObject] = useState({})
 
   let color = ''
   switch (true) {
@@ -51,7 +53,12 @@ const GameInfo = () => {
 
   const handleModal = (index) => {
     setCarouselIndex(index)
-    setShow(!show)
+    setShowScreenshotsModal(!showScreenshotsModal)
+  }
+
+  const handleVideo = (video) => {
+    setVideoObject(video)
+    setShowVideosModal(!showVideosModal)
   }
 
   const handleSelect = (selectedIndex) => {
@@ -88,20 +95,24 @@ const GameInfo = () => {
             <p>{game.summary}</p>
           </div>
 
-          <div className="InfoContainer">
-            <h5>Game Modes:</h5>
-            <ul className="GameModeList">
-              {game.game_modes && game.game_modes
-                .map((mode) => <li key={mode.id}>{mode.name}</li>)}
-            </ul>
-          </div>
+          {game.game_modes && (
+            <div className="InfoContainer">
+              <h5>Game Modes:</h5>
+              <ul className="GameModeList">
+                {game.game_modes && game.game_modes
+                  .map((mode) => <li key={mode.id}>{mode.name}</li>)}
+              </ul>
+            </div>
+          )}
 
-          <div className="InfoContainer">
-            <h5>Genres:</h5>
-            <ul className="GenreList">
-              {game.genres && game.genres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
-            </ul>
-          </div>
+          {game.genres && (
+            <div className="InfoContainer">
+              <h5>Genres:</h5>
+              <ul className="GenreList">
+                {game.genres && game.genres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
+              </ul>
+            </div>
+          )}
 
           <div className="InfoContainer">
             <h5>Platforms:</h5>
@@ -155,10 +166,8 @@ const GameInfo = () => {
             <h5>Videos</h5>
             <div className="VideoList">
               {game.videos.map((video) => (
-                <iframe className="Video" key={video.id}
-                  title={video.title}
-                  src={`https://www.youtube.com/embed/${video.video_id}`}
-                  poster={`https://img.youtube.com/vi/${video.video_id}/0.jpg`}
+                <img src={`https://img.youtube.com/vi/${video.video_id}/0.jpg`} alt="thumbnail of video" onClick={() => handleVideo(video)}
+                  className="VideoThumb"
                 />
               ))}
             </div>
@@ -177,8 +186,8 @@ const GameInfo = () => {
 
       </Container>
 
-      <Modal show={show} onHide={() => setShow(false)} centered
-        className="ModalContainer"
+      <Modal show={showScreenshotsModal} onHide={() => setShowScreenshotsModal(false)} centered
+        className="ModalContainer ModalScreenshots"
       >
         <Carousel activeIndex={carouselIndex} onSelect={handleSelect}>
           {game.screenshots && game.screenshots.map((screenshot) => (
@@ -187,6 +196,21 @@ const GameInfo = () => {
             </Carousel.Item>
           ))}
         </Carousel>
+      </Modal>
+
+      <Modal show={showVideosModal} onHide={() => setShowVideosModal(false)} centered
+        className="ModalContainer ModalVideos"
+      >
+        <div className="embed-responsive embed-responsive-16by9">
+          <iframe className="Video" key={videoObject.id}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen="1"
+            frameBorder="0"
+            title={videoObject.title}
+            src={`https://www.youtube.com/embed/${videoObject.video_id}`}
+            poster={`https://img.youtube.com/vi/${videoObject.video_id}/0.jpg`}
+          />
+        </div>
       </Modal>
     </>
   )
