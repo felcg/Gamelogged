@@ -108,3 +108,39 @@
         }
     } 
  }
+
+ @media (min-width: 768px) {
+    .GameCard {
+        .CoverAndInfo {
+            .GameInfo {
+                .GameSummary {
+                    max-width: 200px;
+                }
+            }
+        }
+    } 
+ }
+
+ @media (min-width: 992px) {
+    .GameCard {
+        .CoverAndInfo {
+            .GameInfo {
+                .GameSummary {
+                    max-width: 100%;
+                }
+            }
+        }
+    } 
+ }
+
+ @media (min-width: 1200px) {
+    .GameCard {
+        .CoverAndInfo {
+            .GameInfo {
+                .GameSummary {
+                    max-width: 100%;
+                }
+            }
+        }
+    } 
+ }
