@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { Container, Modal, Carousel } from 'react-bootstrap'
 import Company from './Company/Company'
 import SimilarGame from './SimilarGame/SimilarGame'
+import gameService from '../../services/games'
 
 
 import './GameFullInfo.scss'
 
 const GameInfo = () => {
   const { gameId } = useParams()
-  const [game, setGame] = useState([])
+  const [game, setGame] = useState({})
   const [show, setShow] = useState(false)
   const [carouselIndex, setCarouselIndex] = useState(0)
 
@@ -31,36 +31,9 @@ const GameInfo = () => {
     break
   }
 
-  const updateImage = (game) => {
-    if (game.cover) {
-      game.cover.url = game.cover.url.split('/')
-      game.cover.url[6] = 't_cover_big'
-      game.cover.url = game.cover.url.join('/')
-      return game
-    }
-    return null
-  }
-
-  const updateScreenshots = (game) => {
-    if (game.screenshots) {
-      game.screenshots.map((screenshot) => {
-        screenshot.url = screenshot.url.split('/')
-        screenshot.url[6] = 't_screenshot_huge'
-        screenshot.url = screenshot.url.join('/')
-        return game
-      })
-    }
-    return null
-  }
-
   const getGame = async () => {
-    const baseUrl = 'http://localhost:3001/api/'
-    const request = await axios.get(`${baseUrl}games`)
-    const returnedGame = request.data.find((g) => g.id === Number(gameId))
-    const bigImageGame = returnedGame
-    updateImage(bigImageGame)
-    updateScreenshots(bigImageGame)
-    setGame(bigImageGame)
+    const response = await gameService.getGame(gameId)
+    setGame(response[0])
   }
 
   const unixToDate = (unix) => {
@@ -196,8 +169,8 @@ const GameInfo = () => {
         && (
           <div className="InfoContainer">
             <h5>Similar Games</h5>
-            <div className="SimilarGamesList">
-              <SimilarGame key={game} games={game.similar_games} />
+            <div className="SimilarGamesList" id="similarGamesList">
+              <SimilarGame key={game} similarGames={game.similar_games} />
             </div>
           </div>
         )}
