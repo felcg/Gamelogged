@@ -1,0 +1,61 @@
+#VideoContainer {
+    h1 {
+        color: #d7d7d9;
+        font-size: 20px
+    }
+}
+
+#hero {
+    background-image: url("../../assets/img/suikoden-2-box-art-crop_1280.0.0.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+}
+
+.RedditVideoListContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: .5rem;
+
+    .RedditVideoContainer {
+        flex: 0 0 auto;
+        margin: 0.5rem;
+        color: #d7d7d9;
+        width: 300px;
+        cursor: pointer;
+
+        h5 {
+            font-size: 16px;
+            color: #747fb3;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        img {
+            max-width:100%;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+}
