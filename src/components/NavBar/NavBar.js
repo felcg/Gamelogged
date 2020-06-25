@@ -3,22 +3,27 @@ import {
   Navbar, Container, Nav, Button,
 } from 'react-bootstrap'
 import './NavBar.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Search from '../Search/Search'
 
 const NavBar = () => (
   <Navbar fixed="top" expand="sm" id="mainNav">
-    <Container className="navContainer">
-      <Navbar.Brand href="/">gamelogged</Navbar.Brand>
-      <FontAwesomeIcon icon={['fas', 'search']} className="NavItem Search" />
-      <Search />
-      <Button className="NavItem">LOGIN</Button>
-      <Button className="NavItem">SIGNUP</Button>
+    <Container className="navContainer" id="navContainer">
+      <div className="item">
+        <Navbar.Brand href="/">gamelogged</Navbar.Brand>
+      </div>
+
+      <div className="item ml-auto mr-n3">
+        <Search />
+      </div>
+
       <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
       <Navbar.Collapse className="justify-content-end" id="links-navbar">
         <Nav>
           <Nav.Item>
-            <Nav.Link className="text-upper nav-item" href="#services"><Button className="NavItem">PROFILE</Button></Nav.Link>
+            <Nav.Link className="text-upper nav-item"><Button className="NavItem">LOGIN</Button></Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link className="text-upper nav-item"><Button className="NavItem">SIGNUP</Button></Nav.Link>
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>

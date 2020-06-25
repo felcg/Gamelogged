@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { searchChange } from '../../reducers/searchReducer'
+import './Search.scss'
 
 
 const Search = () => {
@@ -20,14 +22,14 @@ const Search = () => {
   }
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
+    <div className="search">
+      <form className="searchForm" onSubmit={handleSubmit}>
         <input type="text"
           placeholder="Search"
           value={searchTerm}
           onChange={handleChange}
         />
-        <input type="submit" value="Submit" />
+        <button type="submit" label="search"><FontAwesomeIcon icon={['fas', 'search']} className="NavItem Search" /></button>
       </form>
     </div>
   )

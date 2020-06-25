@@ -1,0 +1,21 @@
+.search {
+    .searchForm {
+        display: flex;
+
+        input[type=text] {
+            width: 80%;
+            background: #404046;
+            border: none;
+            padding: .5rem;
+            border-radius: .3rem;
+        }
+
+        button {
+            background: #404046;
+            margin-left: -1rem;
+            border-radius: .3rem;
+        }
+
+    }
+    
+}

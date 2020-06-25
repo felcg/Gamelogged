@@ -1,7 +1,16 @@
+#navContainer {
+    flex-wrap: nowrap;
+}
+
 .navbar {
     background: #18181b;
     font-weight: 600;
     text-transform: uppercase;
+
+
+    .item {
+        display: flex;
+    }
 
     button {
         font-size: 1rem;
@@ -49,12 +58,10 @@
     color: #747fb3;
 }
 
-.Search {
-    margin-left: auto;
-    margin-right: 1rem;
-}
+
 
 .navContainer {
     margin: 0;
     max-width: 100%;
+    display: flex;
 }
