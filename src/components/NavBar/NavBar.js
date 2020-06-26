@@ -12,7 +12,7 @@ const NavBar = () => (
         <Navbar.Brand href="/">gamelogged</Navbar.Brand>
       </div>
 
-      <div className="item ml-auto mr-n3">
+      <div className="item ml-auto mr-n4">
         <Search />
       </div>
 
