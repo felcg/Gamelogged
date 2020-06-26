@@ -28,6 +28,16 @@ const getCompany = async (id) => {
   return response.data
 }
 
+const getRecent = async () => {
+  const response = await axios.get(`${baseUrl}initialGames`)
+  return response.data
+}
+
+const getTopTen = async () => {
+  const response = await axios.get(`${baseUrl}TopRatedGames`)
+  return response.data
+}
+
 export default {
-  getPlatformGames, getAllGames, getGame, searchGames, getCompany,
+  getPlatformGames, getAllGames, getGame, searchGames, getCompany, getRecent, getTopTen,
 }
