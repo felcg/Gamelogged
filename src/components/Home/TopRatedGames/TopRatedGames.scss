@@ -1,0 +1,22 @@
+.TopRatedGamesContainer {
+    margin-bottom: 5rem;
+    h1 {
+        color: #d7d7d9;
+        font-size: 20px;
+    }
+
+    .GameCardContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-top: 0.5rem;
+    
+        .GameCard {
+            flex: 0 0 auto;
+            margin: 0.5rem;
+            color: #d7d7d9;
+            width: 300px;
+        }
+    }
+}
+
