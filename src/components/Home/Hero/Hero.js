@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Container, Row, Col, Button,
 } from 'react-bootstrap'
@@ -6,16 +7,20 @@ import {
 
 const Hero = () => (
   <div id="hero">
-    <Container fluid className="text-center text-white mx-auto" id="header_container">
+    <Container fluid className="mx-auto text-secondary" id="header_container">
       <Row>
         <Col md={6}>
-          <Col xl={12} className="col-auto text-xl-left text-md-left text-center">
-            <h1 className="display-6">Gamelogged</h1>
-            <h4>Keep track of your games and discover your next!</h4>
-          </Col>
+          <h1 className="display-6">Find games</h1>
+          <p>Search for games using many filters</p>
+          <Link to="/platforms"><Button>DISCOVER</Button></Link>
         </Col>
         <Col md={6}>
-          <Button>Discover</Button>
+          <h1 className="display-6">Keep the memories</h1>
+          <p>Build your log, write reviews, rate games, make wishlists and more</p>
+          <div>
+            <Button>SIGNUP</Button> <Button>LOGIN</Button>
+          </div>
+
         </Col>
       </Row>
     </Container>
