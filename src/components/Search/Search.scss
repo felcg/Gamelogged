@@ -1,7 +1,12 @@
+#searchDiv {
+    width: 50%;
+}
+
 .search {
     .searchForm {
         display: flex;
-
+        justify-content: flex-end;
+        
         input[type=text] {
             width: 80%;
             background: #404046;
@@ -21,7 +26,14 @@
             margin-left: -1rem;
             border-radius: .3rem;
         }
+    }   
+}
 
+
+
+@media (min-width: 400px) {
+    #searchDiv {
+        width: 300px;
+        display: block;
     }
-    
 }
