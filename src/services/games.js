@@ -13,6 +13,11 @@ const getAllGames = async (page, sort, genre, gameMode, coopMode) => {
   return response.data
 }
 
+const getInitialGames = async () => {
+  const response = await axios.get(`${baseUrl}games?`)
+  return response.data
+}
+
 const searchGames = async (query, page) => {
   const response = await axios.get(`${baseUrl}search/${query}?page=${page}`)
   return response.data
@@ -39,5 +44,12 @@ const getTopTen = async () => {
 }
 
 export default {
-  getPlatformGames, getAllGames, getGame, searchGames, getCompany, getRecent, getTopTen,
+  getPlatformGames,
+  getAllGames,
+  getGame,
+  searchGames,
+  getCompany,
+  getRecent,
+  getTopTen,
+  getInitialGames,
 }
