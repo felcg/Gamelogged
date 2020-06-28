@@ -8,6 +8,12 @@
             border: none;
             padding: .5rem;
             border-radius: .3rem;
+            color: #d7d7d9;
+
+            &:focus {
+                outline: none;
+                border: none;
+            }
         }
 
         button {

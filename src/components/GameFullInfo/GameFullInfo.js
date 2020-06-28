@@ -166,7 +166,8 @@ const GameInfo = () => {
             <h5>Videos</h5>
             <div className="VideoList">
               {game.videos.map((video) => (
-                <img src={`https://img.youtube.com/vi/${video.video_id}/0.jpg`} alt="thumbnail of video" onClick={() => handleVideo(video)}
+                <img key={video.video_id} src={`https://img.youtube.com/vi/${video.video_id}/0.jpg`} alt="thumbnail of video"
+                  onClick={() => handleVideo(video)}
                   className="VideoThumb"
                 />
               ))}
