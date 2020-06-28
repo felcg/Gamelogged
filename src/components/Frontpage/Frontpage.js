@@ -63,7 +63,6 @@ const Index = () => {
 
   return (
     <>
-      (
       <Container className="contentWrapper">
         {search === null
           ? (
@@ -83,7 +82,6 @@ const Index = () => {
           <Pagination pager={pager} />
         </Loading>
       </Container>
-      )
     </>
   )
 }
