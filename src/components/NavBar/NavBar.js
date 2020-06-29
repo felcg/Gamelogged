@@ -16,7 +16,7 @@ const NavBar = () => (
         <Search />
       </div>
 
-      <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
+      {/* <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
       <Navbar.Collapse className="justify-content-end" id="links-navbar">
         <Nav>
           <Nav.Item>
@@ -26,7 +26,7 @@ const NavBar = () => (
             <Nav.Link className="text-upper nav-item"><Button className="NavItem">SIGNUP</Button></Nav.Link>
           </Nav.Item>
         </Nav>
-      </Navbar.Collapse>
+      </Navbar.Collapse> */}
 
     </Container>
   </Navbar>
