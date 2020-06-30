@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -12,9 +12,9 @@ console.log('url', process.env.PUBLIC_URL)
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename="/">
       <Route component={App} />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
 
   document.getElementById('root'),
