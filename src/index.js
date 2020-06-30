@@ -8,6 +8,7 @@ import './fontawesome'
 import './assets/custom.scss'
 import App from './App'
 
+console.log('url', process.env.PUBLIC_URL)
 
 ReactDOM.render(
   <Provider store={store}>
