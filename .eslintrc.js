@@ -36,7 +36,8 @@ indent: ["error", 2],
     "react-hooks/exhaustive-deps": "off",
     'react/jsx-first-prop-new-line': ["error", 'never'],
     'react/jsx-max-props-per-line': ["error", { 'maximum': 3}],
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "jsx-a11y/label-has-associated-control": "off"
     
   },
 };
