@@ -9,7 +9,7 @@ const NavBar = () => (
   <Navbar fixed="top" expand="sm" id="mainNav">
     <Container className="navContainer" id="navContainer">
       <div className="item">
-        <Navbar.Brand href="/Gamelogged">gamelogged</Navbar.Brand>
+        <Navbar.Brand href="/">gamelogged</Navbar.Brand>
       </div>
 
       <div id="searchDiv" className="item ml-auto">
