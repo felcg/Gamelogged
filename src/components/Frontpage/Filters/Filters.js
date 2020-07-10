@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Select from '../Select/Select'
 import { genreChange, gameModeChange, coopModeChange } from '../../../reducers/filterReducer'
 
@@ -9,6 +9,8 @@ import {
 
 
 const Filters = ({ filters }) => {
+  const gameMode = useSelector((state) => state.filters.gameMode)
+
   const dispatch = useDispatch()
   const changeFilter = (e, filter) => {
     switch (filter) {
@@ -31,13 +33,16 @@ const Filters = ({ filters }) => {
         name="All Genres"
       />
 
-      <Select value={filters.coop} onChange={(e) => changeFilter(e, 'coopMode')} collection={coopModes}
-        name="All Coop Modes"
-      />
-
       <Select value={filters.gameMode} onChange={(e) => changeFilter(e, 'gameMode')} collection={gameModes}
         name="All Game Modes"
       />
+
+      {gameMode === 'Co-operative' && (
+        <Select value={filters.coop} onChange={(e) => changeFilter(e, 'coopMode')} collection={coopModes}
+          name="All Coop Modes"
+        />
+      )}
+
 
     </>
   )
