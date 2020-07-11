@@ -1,17 +1,22 @@
 
-<h1 align="center">Gamelogged</h1>
+# Gamelogged
 
 > Uma aplicação para buscar jogos e conteúdos relacionados a jogos utilizando a API do [IGDB](https://www.igdb.com/).
 
-<br />
 
-## Tecnologias
+## Tecnologias 
+Nesse projeto utilizei as seguintes tecnologias:
 
- * **React** 
- * **Redux**
- * **React-router**
- * **Bootstrap**
- * **Sass**
+ >React
+ Redux
+ Node.js
+ Express
+ Redis
+ Sass
+ Bootsrap
+ Heroku
+ 
+ 
  
 
 
