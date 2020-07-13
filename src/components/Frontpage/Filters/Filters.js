@@ -14,16 +14,16 @@ const Filters = ({ filters }) => {
   const dispatch = useDispatch()
   const changeFilter = (e, filter) => {
     switch (filter) {
-    case 'genre':
-      dispatch(genreChange(e.target.value))
-      break
-    case 'gameMode':
-      dispatch(gameModeChange(e.target.value))
-      break
-    case 'coopMode':
-      dispatch(coopModeChange(e.target.value))
-      break
-    default:
+      case 'genre':
+        dispatch(genreChange(e.target.value))
+        break
+      case 'gameMode':
+        dispatch(gameModeChange(e.target.value))
+        break
+      case 'coopMode':
+        dispatch(coopModeChange(e.target.value))
+        break
+      default:
     }
   }
 

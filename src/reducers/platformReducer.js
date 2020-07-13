@@ -1,9 +1,9 @@
 const platformReducer = (state = 'all', action) => {
   switch (action.type) {
-  case 'SET_PLATFORM':
-    return action.platform
-  default:
-    return state
+    case 'SET_PLATFORM':
+      return action.platform
+    default:
+      return state
   }
 }
 
