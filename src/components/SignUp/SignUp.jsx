@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-indent-props */
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
+import { Link, useLocation } from 'react-router-dom'
 import {
   Formik, Field, Form, ErrorMessage,
 } from 'formik'
 import * as Yup from 'yup'
+import signupService from '../../services/signup'
 import './SignUp.scss'
 
 const SignupSchema = Yup.object().shape({
@@ -24,52 +26,96 @@ const SignupSchema = Yup.object().shape({
     .min(6, 'Password needs to be at least 6 characters long'),
 })
 
-const SignUp = () => (
-  <div className="form__signup">
-    <h1 className="form__title">Join Gamelogged.com!</h1>
-    <Formik initialValues={{
-      name: '', username: '', email: '', password: '',
-    }}
+const SignUp = () => {
+  const [error, setError] = useState(null)
+  const [success, setSuccess] = useState(null)
+  const location = useLocation()
+  console.log('location', location)
 
-    validationSchema={SignupSchema}
+  const params = new URLSearchParams(location.search)
+  const foo = params.get('email') // bar
+  console.log(foo)
 
-    onSubmit={(values, { setSubmitting }) => {
-      console.log(values)
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2))
-        setSubmitting(false)
-      }, 400)
-    }}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <label>Name</label>
-          <Field type="text" name="name" id="name" />
-          <ErrorMessage name="name" component="div" className="form__error" />
+  return (
+    <div className="form">
+      {success === null
+        ? (
 
 
-          <label>Username</label>
-          <Field type="text" name="username" />
-          <ErrorMessage name="username" component="div" className="form__error" />
+          <div className="form__signup">
+
+            <h1 className="form__title">Join Gamelogged.com!</h1>
+
+            {error && (
+              <div className="form__result">
+                {error}
+              </div>
+            )}
 
 
-          <label>Email</label>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" className="form__error" />
+            <Formik initialValues={{
+              name: '', username: '', email: '', password: '',
+            }}
+
+            validationSchema={SignupSchema}
+
+            onSubmit={async (values, { setSubmitting }) => {
+              const user = {
+                name: values.name,
+                email: values.email,
+                username: values.username,
+                password: values.password,
+              }
+
+              try {
+                await signupService.signup(user)
+                setSubmitting(false)
+                setSuccess('Thanks for joining! Check your email to verify your account. If you can\'t find the email, please check your spam folder.')
+              } catch (error) {
+                console.log(error.response.data)
+                setError(error.response.data)
+              }
+            }}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <label>Name</label>
+                  <Field type="text" name="name" id="name" />
+                  <ErrorMessage name="name" component="div" className="form__error" />
 
 
-          <label>Password</label>
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" className="form__error" />
+                  <label>Username</label>
+                  <Field type="text" name="username" />
+                  <ErrorMessage name="username" component="div" className="form__error" />
 
 
-          <Button variant="primary" type="submit" disabled={isSubmitting}>
-            SignUp
-          </Button>
-        </Form>
-      )}
-    </Formik>
-  </div>
-)
+                  <label>Email</label>
+                  <Field type="email" name="email" />
+                  <ErrorMessage name="email" component="div" className="form__error" />
+
+
+                  <label>Password</label>
+                  <Field type="password" name="password" />
+                  <ErrorMessage name="password" component="div" className="form__error" />
+
+
+                  <Button variant="primary" type="submit" disabled={isSubmitting}>
+                    SignUp
+                  </Button>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        )
+        : (
+          <div className="form__result--success">
+            <p>{success}</p>
+
+            <Link to="/"><Button>BACK TO HOME</Button></Link>
+          </div>
+        ) }
+    </div>
+  )
+}
 
 export default SignUp
