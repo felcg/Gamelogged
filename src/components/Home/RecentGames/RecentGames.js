@@ -17,7 +17,7 @@ const RecentGames = () => {
 
   return (
     <div className="RecentGamesContainer">
-      <h1>Recent Games</h1>
+      <h1>Recent Releases</h1>
       <div className="GameCardContainer container">
         {games && games.map((game, index) => (
           <GameCard key={game.id} game={game} index={index} />
