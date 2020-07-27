@@ -1,8 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import {
-  Navbar, Container, Nav, Button,
-} from 'react-bootstrap'
+import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import './NavBar.scss'
 import Search from '../Search/Search'
 
@@ -20,7 +18,7 @@ const NavBar = () => {
           <Search />
         </div>
 
-        <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
+        {/* <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
         <Navbar.Collapse className="justify-content-end" id="links-navbar">
           <Nav>
             <Nav.Item>
@@ -32,8 +30,7 @@ const NavBar = () => {
               <Nav.Link href="#/signup" className="text-upper nav-item"><Button className="NavItem">SIGNUP</Button></Nav.Link>
             </Nav.Item>
           </Nav>
-        </Navbar.Collapse>
-
+        </Navbar.Collapse> */}
       </Container>
     </Navbar>
   )
