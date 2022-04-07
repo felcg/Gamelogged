@@ -1,63 +1,60 @@
 .navbar {
-    background: #18181b;
+  background: #18181b;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  .item {
+    display: flex;
+  }
+
+  button {
+    font-size: 1rem;
     font-weight: 600;
-    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    padding: 0.4rem;
+  }
 
-
-    .item {
-        display: flex;
-    }
-
-    button {
-        font-size: 1rem;
-        font-weight: 600;
-        background: transparent;
-        border: none;
-        padding: 0.4rem;
-    }
-
-    button:hover {
-        color: #d7d7d9;
-        background: #747fb3;
-    }
+  button:hover {
+    color: #d7d7d9;
+    background: #747fb3;
+  }
 }
 
 .navbar-light .navbar-brand {
-    font-size: 1rem;
-    color: #747fb3;
+  font-size: 1rem;
+  color: #747fb3;
 
-    &:hover {
-        color: #d7d7d9;
-    }
+  &:hover {
+    color: #d7d7d9;
+  }
 }
 
 .navbar-collapse {
-    flex-grow: 0;
+  flex-grow: 0;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #747fb3;
+  color: #747fb3;
 
-    &:hover {
-        color: #d7d7d9;
-    }
+  &:hover {
+    color: #d7d7d9;
+  }
 }
 
 .navbar-toggler {
-    padding: 0;
-    font-size: 1rem;
-    border: none;
-    color: #747fb3;
+  padding: 0;
+  font-size: 1rem;
+  border: none;
+  color: #747fb3;
 }
 
 .NavItem {
-    color: #747fb3;
+  color: #747fb3;
 }
 
-
-
 .navContainer {
-    margin: 0;
-    max-width: 100%;
-    display: flex;
+  margin: 0;
+  max-width: 100%;
+  display: flex;
 }

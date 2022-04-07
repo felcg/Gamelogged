@@ -17,5 +17,5 @@ ReactDOM.render(
     </HashRouter>
   </Provider>,
 
-  document.getElementById('root'),
+  document.getElementById('root')
 )

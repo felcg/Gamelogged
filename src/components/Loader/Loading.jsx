@@ -22,9 +22,14 @@ export default function Loading({ isLoading, children }) {
     }
   }, [isLoading, showLoader])
 
-
-  const fadeOutProps = useSpring({ opacity: showLoader ? 1 : 0, color: '#747fb3' })
-  const fadeInProps = useSpring({ opacity: showLoader ? 0 : 1, color: '#747fb3' })
+  const fadeOutProps = useSpring({
+    opacity: showLoader ? 1 : 0,
+    color: '#747fb3',
+  })
+  const fadeInProps = useSpring({
+    opacity: showLoader ? 0 : 1,
+    color: '#747fb3',
+  })
 
   return (
     <div>

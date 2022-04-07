@@ -1,211 +1,207 @@
 .GameFullInfoContainer {
-    padding-top: 5rem;
+  padding-top: 5rem;
 
-    h1 {
-        color: #d7d7d9;
-        font-size: 2rem;
-    }
+  h1 {
+    color: #d7d7d9;
+    font-size: 2rem;
+  }
 
-    h5 {
-        font-size: 1rem;
-        color: #747fa4;
-    }
-
+  h5 {
+    font-size: 1rem;
+    color: #747fa4;
+  }
 }
 
-    .FirstBlock {
-        background: #18181b;  
-        width: 100%;  
-        padding: 1rem;
-        margin-bottom: 1rem;
-        display: flex;
+.FirstBlock {
+  background: #18181b;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
 
-        .ReleaseDate {
-            color: #d7d7d9;
-            font-weight: 300;
-        }
+  .ReleaseDate {
+    color: #d7d7d9;
+    font-weight: 300;
+  }
 
-        .GameRating {
-            background: #404046;
-            height: 70px;
-            min-width: 70px;
-            margin-left: auto;
-            text-align: center;
-    
-            span {
-                height: 80px;
-                line-height: 65px;
-                white-space: nowrap;
-                color: #949494;
-                font-size: 3rem;
-            }
-        }
+  .GameRating {
+    background: #404046;
+    height: 70px;
+    min-width: 70px;
+    margin-left: auto;
+    text-align: center;
 
+    span {
+      height: 80px;
+      line-height: 65px;
+      white-space: nowrap;
+      color: #949494;
+      font-size: 3rem;
     }
-        
-    .ImageDiv {  
-        display: flex;
-        margin-bottom: 1rem;  
-        justify-content: center;
+  }
+}
+
+.ImageDiv {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.InfoContainer,
+.TimeToBeat {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  h5 {
+    font-size: 1rem;
+    color: #747fa4;
+  }
+
+  ul {
+    list-style: none;
+    color: #d7d7d9;
+    padding: 0;
+  }
+
+  p {
+    color: #d7d7d9;
+    margin-bottom: 0;
+  }
+
+  .PlatformList {
+    // display: flex;
+    // flex-wrap: nowrap;
+    // overflow-x: auto;
+    margin-bottom: 0.5rem;
+
+    .Platform {
+      flex: 0 0 auto;
+      margin-right: 0.5rem;
+      color: #d7d7d9;
     }
+  }
 
-    
-        
-    .InfoContainer, .TimeToBeat {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        
-        h5 {
-            font-size: 1rem;
-            color: #747fa4;
-        }
+  .CompaniesList {
+    margin-bottom: 1rem;
+  }
 
-        ul {
-            list-style: none;
-            color: #d7d7d9;
-            padding: 0;
-        }
+  .ScreenshotList {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 0.5rem;
 
-        p {
-            color: #d7d7d9;
-            margin-bottom: 0;
-        }
-        
-        .PlatformList {
-            // display: flex;
-            // flex-wrap: nowrap;
-            // overflow-x: auto;
-            margin-bottom: .5rem;
-    
-            .Platform {
-                flex: 0 0 auto;
-                margin-right: .5rem;
-                color: #d7d7d9;
-            }
-        }
-
-        .CompaniesList {
-            margin-bottom: 1rem;
-        }
-
-        .ScreenshotList {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            margin-bottom: .5rem;
-    
-            .Screenshot {
-                flex: 0 0 auto;
-                margin: .5rem;
-                color: #d7d7d9;
-                width: 200px;
-                height: auto;
-                cursor: pointer;
-            }
-        }
-
-        .VideoList {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            margin-bottom: 0.5rem;
-        }
-
-        .VideoThumb {
-            flex: 0 0 auto;
-            margin: .5rem;
-            max-width: 350px;
-            cursor: pointer;
-        }
-
-        .SimilarGamesList {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            margin-bottom: 0.5rem;
-        }
-
-        .SimilarGame {
-            flex: 0 0 auto;
-            margin: .5rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-
-            img {
-                width: 150px;
-                height: auto;
-            }
-
-            p {
-                color: #d7d7d9;
-                max-width: 100px;
-            }
-        }
+    .Screenshot {
+      flex: 0 0 auto;
+      margin: 0.5rem;
+      color: #d7d7d9;
+      width: 200px;
+      height: auto;
+      cursor: pointer;
     }
-    
-    .Summary {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+  }
 
-        padding: 1rem;
-        background: #18181b;
-        color: #d7d7d9;
-        h4 { 
-            font-size: 20px
-        }
+  .VideoList {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 0.5rem;
+  }
 
-        p {
-            font-size: 14px;
-            margin-bottom: 0;
-        }
+  .VideoThumb {
+    flex: 0 0 auto;
+    margin: 0.5rem;
+    max-width: 350px;
+    cursor: pointer;
+  }
+
+  .SimilarGamesList {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .SimilarGame {
+    flex: 0 0 auto;
+    margin: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    img {
+      width: 150px;
+      height: auto;
     }
 
-    .ScreenshotContainer {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+    p {
+      color: #d7d7d9;
+      max-width: 100px;
     }
+  }
+}
 
-    .VideosContainer {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
+.Summary {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
-    .SimilarGamesContainer {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
+  padding: 1rem;
+  background: #18181b;
+  color: #d7d7d9;
+  h4 {
+    font-size: 20px;
+  }
 
-    .ModalContainer {
-        margin: 0 auto;
-        .modal-dialog-centered {
-            justify-content: center;
-        }
-        
-        .modal-dialog {
-            max-width: 900px;
-            min-width: 280px;
-        }
-        .ModalImage {
-            max-width: 100%;
-        }
-    }
-    
-    
-@media (min-width: 992px) { 
-    .MainInfoContainer {
-        display: flex;
-        flex-wrap: wrap;
-    }
+  p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+}
 
-    .Summary {
-        flex: 0 0 70%;
-        margin-left: auto;
-        margin-top: 0;
-    }
+.ScreenshotContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
-    .InfoContainer {
-        flex: 0 0 25%;
-    }
- }
+.VideosContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.SimilarGamesContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ModalContainer {
+  margin: 0 auto;
+  .modal-dialog-centered {
+    justify-content: center;
+  }
+
+  .modal-dialog {
+    max-width: 900px;
+    min-width: 280px;
+  }
+  .ModalImage {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .MainInfoContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .Summary {
+    flex: 0 0 70%;
+    margin-left: auto;
+    margin-top: 0;
+  }
+
+  .InfoContainer {
+    flex: 0 0 25%;
+  }
+}

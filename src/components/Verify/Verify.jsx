@@ -11,13 +11,13 @@ const Verify = () => {
   const email = params.get('email')
 
   return (
-
     <div className="verify__success">
       <p>The account linked to email {email} has been verified.</p>
 
-      <Link to="/"><Button>BACK TO HOME</Button></Link>
+      <Link to="/">
+        <Button>BACK TO HOME</Button>
+      </Link>
     </div>
-
   )
 }
 

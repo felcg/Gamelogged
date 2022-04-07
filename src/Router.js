@@ -14,9 +14,12 @@ export default () => (
     <Route exact path="/verify" component={withRouter(Verify)} />
     <Route exact path="/signup" component={withRouter(SignUp)} />
     <Route exact path="/games/:gameId" component={withRouter(GameFullInfo)} />
-    <Route exact path="/platforms/:platform" component={withRouter(Frontpage)} />
+    <Route
+      exact
+      path="/platforms/:platform"
+      component={withRouter(Frontpage)}
+    />
     <Route exact path="/platforms" component={withRouter(Frontpage)} />
     <Route exact path="/" component={withRouter(Home)} />
   </Switch>
-
 )

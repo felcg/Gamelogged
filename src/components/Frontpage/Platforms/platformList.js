@@ -31,6 +31,7 @@ const platforms = [
   { slug: 'ios', name: 'iOs' },
   { slug: 'arcade', name: 'Arcade' },
   { slug: 'android', name: 'Android' },
-  { slug: 'linux', name: 'Linux' }]
+  { slug: 'linux', name: 'Linux' },
+]
 
 export default platforms

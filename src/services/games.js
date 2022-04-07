@@ -3,13 +3,24 @@ import axios from 'axios'
 const baseUrl = 'https://guarded-mesa-01224.herokuapp.com/api/'
 // const baseUrl = 'http://localhost:3001/api/'
 
-const getPlatformGames = async (platform, page, sort, genre, gameMode, coopMode) => {
-  const response = await axios.get(`${baseUrl}platform/${platform}?page=${page}&sort=${sort}&genre=${genre}&gameMode=${gameMode}&coopMode=${coopMode}`)
+const getPlatformGames = async (
+  platform,
+  page,
+  sort,
+  genre,
+  gameMode,
+  coopMode
+) => {
+  const response = await axios.get(`${baseUrl}platform/${platform}`, {
+    params: { page, sort, genre, gameMode, coopMode },
+  })
   return response.data
 }
 
 const getAllGames = async (page, sort, genre, gameMode, coopMode) => {
-  const response = await axios.get(`${baseUrl}games?page=${page}&sort=${sort}&genre=${genre}&gameMode=${gameMode}&coopMode=${coopMode}`)
+  const response = await axios.get(`${baseUrl}games`, {
+    params: { page, sort, genre, gameMode, coopMode },
+  })
   return response.data
 }
 
@@ -19,7 +30,9 @@ const getInitialGames = async () => {
 }
 
 const searchGames = async (query, page) => {
-  const response = await axios.get(`${baseUrl}search/${query}?page=${page}`)
+  const response = await axios.get(`${baseUrl}search/${query}`, {
+    params: { page },
+  })
   return response.data
 }
 

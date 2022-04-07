@@ -27,7 +27,10 @@ const VideoContainer = () => {
     arr.map((post) => {
       const string = decodeEntities(post.data.secure_media_embed.content)
       const getId = string.substring(68, 79)
-      return newArr.push({ id: getId, title: post.data.secure_media.oembed.title })
+      return newArr.push({
+        id: getId,
+        title: post.data.secure_media.oembed.title,
+      })
     })
 
     return newArr
@@ -43,30 +46,36 @@ const VideoContainer = () => {
     getPosts()
   }, [])
 
-
   return (
-
     <>
       <div id="VideoContainer">
         <h1>Videos About Games</h1>
         <div className="RedditVideoListContainer container">
-          {posts && posts.map((post) => (
-            <div key={post.id} className="RedditVideoContainer">
-              <h5>{post.title}</h5>
-              <img src={`https://img.youtube.com/vi/${post.id}/0.jpg`} alt="thumbnail of video" onClick={() => handleVideo(post)}
-                className="VideoThumb"
-              />
-            </div>
-          ))}
+          {posts &&
+            posts.map((post) => (
+              <div key={post.id} className="RedditVideoContainer">
+                <h5>{post.title}</h5>
+                <img
+                  src={`https://img.youtube.com/vi/${post.id}/0.jpg`}
+                  alt="thumbnail of video"
+                  onClick={() => handleVideo(post)}
+                  className="VideoThumb"
+                />
+              </div>
+            ))}
         </div>
       </div>
 
-
-      <Modal show={showVideosModal} onHide={() => setShowVideosModal(false)} centered
+      <Modal
+        show={showVideosModal}
+        onHide={() => setShowVideosModal(false)}
+        centered
         className="ModalContainer ModalVideos"
       >
         <div className="embed-responsive embed-responsive-16by9">
-          <iframe className="Video" key={videoObject.id}
+          <iframe
+            className="Video"
+            key={videoObject.id}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen="1"
             frameBorder="0"

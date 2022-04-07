@@ -1,39 +1,37 @@
 #searchDiv {
-    width: 50%;
+  width: 50%;
 }
 
 .search {
-    .searchForm {
-        display: flex;
-        justify-content: flex-end;
-        
-        input[type=text] {
-            width: 80%;
-            background: #404046;
-            border: none;
-            padding: .5rem;
-            border-radius: .3rem;
-            color: #d7d7d9;
+  .searchForm {
+    display: flex;
+    justify-content: flex-end;
 
-            &:focus {
-                outline: none;
-                border: none;
-            }
-        }
+    input[type='text'] {
+      width: 80%;
+      background: #404046;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      color: #d7d7d9;
 
-        button {
-            background: #404046;
-            margin-left: -1rem;
-            border-radius: .3rem;
-        }
-    }   
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+
+    button {
+      background: #404046;
+      margin-left: -1rem;
+      border-radius: 0.3rem;
+    }
+  }
 }
 
-
-
 @media (min-width: 400px) {
-    #searchDiv {
-        width: 300px;
-        display: block;
-    }
+  #searchDiv {
+    width: 300px;
+    display: block;
+  }
 }

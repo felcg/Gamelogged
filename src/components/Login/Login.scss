@@ -1,19 +1,18 @@
-.form__error--db{
-    background: #404046;
-    color: #d7d9d9;
-    max-width: 370px;
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    padding: 1rem;
-    border-radius: .5rem;
+.form__error--db {
+  background: #404046;
+  color: #d7d9d9;
+  max-width: 370px;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
 
-    p {
-        margin: 0;
-    }
+  p {
+    margin: 0;
+  }
 
-    button {
-        font-weight: 500;
-    }
+  button {
+    font-weight: 500;
+  }
 }
- 

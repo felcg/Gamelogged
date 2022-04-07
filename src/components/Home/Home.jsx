@@ -13,7 +13,6 @@ import { login } from '../../reducers/userReducer'
 const Home = () => {
   const dispatch = useDispatch()
 
-
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser')
     if (loggedUserJSON) {

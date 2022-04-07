@@ -19,9 +19,10 @@ const TopRatedGames = () => {
     <div className="TopRatedGamesContainer">
       <h1>Top10 Games with a lot of votes</h1>
       <div className="GameCardContainer container">
-        {games && games.map((game, index) => (
-          <GameCard key={game.id} game={game} index={index} />
-        ))}
+        {games &&
+          games.map((game, index) => (
+            <GameCard key={game.id} game={game} index={index} />
+          ))}
       </div>
     </div>
   )

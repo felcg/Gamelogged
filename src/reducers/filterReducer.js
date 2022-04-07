@@ -1,4 +1,7 @@
-const filterReducer = (state = { genre: 'nofilter', gameMode: 'nofilter', coopMode: 'nofilter' }, action) => {
+const filterReducer = (
+  state = { genre: 'nofilter', gameMode: 'nofilter', coopMode: 'nofilter' },
+  action
+) => {
   switch (action.type) {
     case 'SET_GENRE':
       return { ...state, genre: action.genre }

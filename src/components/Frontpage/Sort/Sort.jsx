@@ -2,9 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { sortChange } from '../../../reducers/sortReducer'
 
-const Sort = ({
-  sort,
-}) => {
+const Sort = ({ sort }) => {
   const dispatch = useDispatch()
   const changeSort = (e) => {
     dispatch(sortChange(e.target.value))

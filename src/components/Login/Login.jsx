@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button } from 'react-bootstrap'
-import {
-  Formik, Field, Form, ErrorMessage,
-} from 'formik'
+import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import loginService from '../../services/login'
 import { login } from '../../reducers/userReducer'
 import './Login.scss'
 
 const loginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
     .required('Required')
     .min(6, 'Password needs to be at least 6 characters long'),
@@ -25,68 +21,70 @@ const Login = () => {
 
   return (
     <div className="form">
-
-      {success === null
-        ? (
-          <div className="form__signup">
-            <h1 className="form__title">Join Gamelogged.com!</h1>
-            <Formik initialValues={{
-              name: '', username: '', email: '', password: '',
+      {success === null ? (
+        <div className="form__signup">
+          <h1 className="form__title">Join Gamelogged.com!</h1>
+          <Formik
+            initialValues={{
+              name: '',
+              username: '',
+              email: '',
+              password: '',
             }}
+            validationSchema={loginSchema}
+            onSubmit={async (values, { setSubmitting }) => {
+              const input = {
+                email: values.email,
+                password: values.password,
+              }
 
-              validationSchema={loginSchema}
+              try {
+                const user = await loginService.login(input)
+                dispatch(login(user))
+                setSubmitting(false)
+                setSuccess('Successfully logged. See your account here.')
+                window.localStorage.setItem('loggedUser', JSON.stringify(user))
+              } catch (error) {
+                setError(error.response.data)
+              }
+            }}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <label>Email</label>
+                <Field type="email" name="email" />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="form__error"
+                />
 
-              onSubmit={async (values, { setSubmitting }) => {
-                const input = {
-                  email: values.email,
-                  password: values.password,
-                }
+                <label>Password</label>
+                <Field type="password" name="password" />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="form__error"
+                />
 
-                try {
-                  const user = await loginService.login(input)
-                  dispatch(login(user))
-                  setSubmitting(false)
-                  setSuccess('Successfully logged. See your account here.')
-                  window.localStorage.setItem(
-                    'loggedUser', JSON.stringify(user),
-                  )
-                } catch (error) {
-                  setError(error.response.data)
-                }
-              }}
-            >
-              {({ isSubmitting }) => (
-                <Form>
-                  <label>Email</label>
-                  <Field type="email" name="email" />
-                  <ErrorMessage name="email" component="div" className="form__error" />
-
-
-                  <label>Password</label>
-                  <Field type="password" name="password" />
-                  <ErrorMessage name="password" component="div" className="form__error" />
-
-                  <Button variant="primary" type="submit" disabled={isSubmitting}>
-                    Login
-                  </Button>
-                </Form>
-              )}
-            </Formik>
-          </div>
-        )
-        : (
-          <div className="form__result--success">
-            <p>{success}</p>
-
-          </div>
-        ) }
-
-      {error && (
-      <div className="form__error--db">
-        <p>{error}</p>
-      </div>
+                <Button variant="primary" type="submit" disabled={isSubmitting}>
+                  Login
+                </Button>
+              </Form>
+            )}
+          </Formik>
+        </div>
+      ) : (
+        <div className="form__result--success">
+          <p>{success}</p>
+        </div>
       )}
 
+      {error && (
+        <div className="form__error--db">
+          <p>{error}</p>
+        </div>
+      )}
     </div>
   )
 }

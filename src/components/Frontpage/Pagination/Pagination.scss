@@ -1,45 +1,45 @@
 .pagination {
-    justify-content: center;
-    padding-bottom: 1rem;
-    margin-bottom: 0;
-    text-transform: lowercase;
-    font-weight: 600;
+  justify-content: center;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+  text-transform: lowercase;
+  font-weight: 600;
 
-    .page-link {
-        cursor: pointer;
-        padding: 0.5rem;
-        font-size: 0.9rem;
-        line-height: 1.5;
-        border: none;
-        color: #747fb3;
-    
-        &:focus {
-            outline: none;
-            box-shadow: none;
-        }
-    
-        &:hover {
-            color: white;
-            background-color: #747fb3;
-        }
+  .page-link {
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border: none;
+    color: #747fb3;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
     }
 
-    .page-item .page-link{
-        background-color: #18181b;
+    &:hover {
+      color: white;
+      background-color: #747fb3;
     }
-    
-    .page-item.active .page-link {
-        z-index: 3;
-        color: #fff;
-        background-color: #747fb3;
-    }
+  }
+
+  .page-item .page-link {
+    background-color: #18181b;
+  }
+
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #747fb3;
+  }
 }
 
-@media (min-width: 768px) { 
-    .pagination {
-        .page-link {
-            padding: .5rem;
-            font-size: 1rem;
-        }
+@media (min-width: 768px) {
+  .pagination {
+    .page-link {
+      padding: 0.5rem;
+      font-size: 1rem;
     }
- }
+  }
+}
