@@ -34,7 +34,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "proxy": "https://guarded-mesa-01224.herokuapp.com/api/",
+  "proxy": "https://gamelogged.onrender.com/api/",
   "eslintConfig": {
     "extends": "react-app"
   },
