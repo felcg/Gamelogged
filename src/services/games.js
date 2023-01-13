@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://guarded-mesa-01224.herokuapp.com/api/'
+const baseUrl = 'https://gamelogged.onrender.com/api/'
 // const baseUrl = 'http://localhost:3001/api/'
 
 const getPlatformGames = async (
