@@ -1,11 +1,25 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
+import { login } from '../../reducers/userReducer'
 import './NavBar.scss'
 import Search from '../Search/Search'
 
 const NavBar = () => {
   const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    window.localStorage.removeItem('loggedUser')
+    window.location.href = '/'
+  }
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      dispatch(login(user))
+    }
+  }, [])
 
   return (
     <Navbar fixed="top" expand="sm" id="mainNav">
@@ -18,19 +32,19 @@ const NavBar = () => {
           <Search />
         </div>
 
-        {/* <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
+        <Navbar.Toggle aria-controls="links-navbar" className="NavItem navbar-dark" />
         <Navbar.Collapse className="justify-content-end" id="links-navbar">
           <Nav>
             <Nav.Item>
               {user === null
                 ? <Nav.Link href="#/login" className="text-upper nav-item"><Button className="NavItem">LOGIN</Button></Nav.Link>
-                : <Nav.Link href="#/login" className="text-upper nav-item"><Button className="NavItem">{user.user.username}</Button></Nav.Link>}
+                : <Nav.Link href={`#/profile/${user.id}`} className="text-upper nav-item"><Button className="NavItem">My Account</Button></Nav.Link>}
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#/signup" className="text-upper nav-item"><Button className="NavItem">SIGNUP</Button></Nav.Link>
+              {user === null ? <Nav.Link href="#/signup" className="text-upper nav-item"><Button className="NavItem">SIGNUP</Button></Nav.Link> : <Nav.Link className="text-upper nav-item"><Button className="NavItem" onClick={handleLogout}>Logout</Button></Nav.Link>}
             </Nav.Item>
           </Nav>
-        </Navbar.Collapse> */}
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   )
