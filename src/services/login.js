@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3001/api/users/login'
+const url = 'https://gamelogged.onrender.com/api/users/login'
 
 const login = async (user) => {
-  const response = await axios.post(baseUrl, user)
+  const response = await axios.post(url, user)
   return response.data
 }
 
