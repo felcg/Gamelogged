@@ -1,14 +1,12 @@
 /* eslint-disable react/jsx-indent-props */
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import './Verify.scss'
 
 const Verify = () => {
-  const location = useLocation()
-  const params = new URLSearchParams(location.search)
-  const email = params.get('email')
+  const { email } = useParams()
 
   return (
     <div className="verify__success">
