@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import loginService from '../../services/login'
 import { login } from '../../reducers/userReducer'
 import './Login.scss'
@@ -18,10 +18,11 @@ const loginSchema = Yup.object().shape({
 const Login = () => {
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
-  const dispatch = useDispatch()
   const [user, setUser] = useState(null)
+  const dispatch = useDispatch()
   const userFromStore = useSelector((state) => state.user)
   const loggedUserJSON = window.localStorage.getItem('loggedUser')
+  const history = useHistory()
 
   useEffect(() => {
     setUser(userFromStore)
@@ -36,6 +37,10 @@ const Login = () => {
       user &&
       <Redirect to={`/profile/${user.id}`} />
     )
+  }
+
+  const handlePasswordResetConfirmation = () => {
+    history.push('/forgotPassword')
   }
 
   return (
@@ -88,6 +93,9 @@ const Login = () => {
 
                 <Button variant="primary" type="submit" disabled={isSubmitting}>
                   Login
+                </Button>
+                <Button variant="primary" type="button" onClick={handlePasswordResetConfirmation}>
+                  Forgot password?
                 </Button>
               </Form>
             )}

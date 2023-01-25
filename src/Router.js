@@ -8,11 +8,17 @@ import SignUp from './components/SignUp/SignUp'
 import Verify from './components/Verify/Verify'
 import Login from './components/Login/Login'
 import Profile from './components/Profile/Profile'
+import ForgotPassword from './components/ForgotPassword/ForgotPassword'
 
 export default () => (
   <Switch>
     <Route exact path="/login" component={withRouter(Login)} />
     <Route exact path="/verify/:email" component={withRouter(Verify)} />
+    <Route
+      exact
+      path="/forgotPassword"
+      component={withRouter(ForgotPassword)}
+    />
     <Route exact path="/signup" component={withRouter(SignUp)} />
     <Route exact path="/games/:gameId" component={withRouter(GameFullInfo)} />
     <Route
