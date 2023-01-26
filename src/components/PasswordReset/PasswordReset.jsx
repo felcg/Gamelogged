@@ -1,25 +1,32 @@
 /* eslint-disable react/jsx-indent-props */
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import Loading from '../Loader/Loading'
-import './ForgotPassword.scss'
-import forgotPasswordService from '../../services/forgotPassword'
+import './PasswordReset.scss'
+import resetPasswordService from '../../services/resetPassword'
 
-const ResetPasswordSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
+const PasswordResetSchema = Yup.object().shape({
+  password: Yup.string()
+    .required('Required')
+    .min(6, 'Password needs to be at least 6 characters long'),
 })
 
 const ForgotPassword = () => {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const params = useParams()
   const history = useHistory()
 
   const handleBackToLogin = () => {
     history.push('/login')
+  }
+
+  const handleBackToHome = () => {
+    history.push('/')
   }
 
   return (
@@ -33,19 +40,19 @@ const ForgotPassword = () => {
           <Loading isLoading={isLoading}>
             <Formik
             initialValues={{
-              email: '',
+              password: '',
             }}
-            validationSchema={ResetPasswordSchema}
+            validationSchema={PasswordResetSchema}
             onSubmit={async (values, { setSubmitting }) => {
               setIsLoading(true)
 
-              const { email } = values
+              const { password } = values
 
               try {
-                await forgotPasswordService.forgotPassword(email)
+                await resetPasswordService.resetPassword(params.email, params.token, password)
                 setSubmitting(false)
                 setSuccess(
-                  `Inscructions on how to finish your password reset have been sent to ${email}`
+                  'Your password has been reset'
                 )
               } catch (error) {
                 setError(error.response.data)
@@ -56,10 +63,10 @@ const ForgotPassword = () => {
             >
               {({ isSubmitting }) => (
                 <Form>
-                  <label>Email</label>
-                  <Field type="email" name="email" />
+                  <label>Password</label>
+                  <Field type="password" name="password" />
                   <ErrorMessage
-                  name="email"
+                  name="password"
                   component="div"
                   className="form__error"
                   />
@@ -80,9 +87,9 @@ const ForgotPassword = () => {
         <div className="form__result--success">
           <p>{success}</p>
 
-          <Link to="/">
-            <Button>BACK TO HOME</Button>
-          </Link>
+          <Button variant="primary" type="button" onClick={handleBackToHome}>
+            Back to home
+          </Button>
         </div>
       )}
     </div>

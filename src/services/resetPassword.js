@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const url = `${process.env.REACT_APP_BASE_URL}api/users/ask-password-reset/`
+const url = 'https://gamelogged.onrender.com/api/users/password-reset/'
 
-const resetPassword = async (email) => {
-  const response = await axios.post(url, { email })
+const resetPassword = async (email, token, password) => {
+  const response = await axios.post(url, { email, token, password })
   return response.data
 }
 

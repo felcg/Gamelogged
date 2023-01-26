@@ -9,6 +9,7 @@ import Verify from './components/Verify/Verify'
 import Login from './components/Login/Login'
 import Profile from './components/Profile/Profile'
 import ForgotPassword from './components/ForgotPassword/ForgotPassword'
+import PasswordReset from './components/PasswordReset/PasswordReset'
 
 export default () => (
   <Switch>
@@ -18,6 +19,11 @@ export default () => (
       exact
       path="/forgotPassword"
       component={withRouter(ForgotPassword)}
+    />
+    <Route
+      exact
+      path="/passwordReset/:email/:token"
+      component={withRouter(PasswordReset)}
     />
     <Route exact path="/signup" component={withRouter(SignUp)} />
     <Route exact path="/games/:gameId" component={withRouter(GameFullInfo)} />
