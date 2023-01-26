@@ -9,7 +9,7 @@ const Hero = () => (
         <Col md={6}>
           <h1 className="display-6">Find games</h1>
           <p>Search for games using many filters</p>
-          <Link to="/platforms">
+          <Link to="/games">
             <Button>DISCOVER</Button>
           </Link>
         </Col>

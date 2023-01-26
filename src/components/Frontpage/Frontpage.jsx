@@ -18,7 +18,6 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [pager, setPager] = useState([])
   const [pageOfItems, setPageOfItems] = useState([])
-
   const location = useLocation()
   const sort = useSelector((state) => state.sort)
   const platform = useSelector((state) => state.platform)
@@ -75,19 +74,17 @@ const Index = () => {
   return (
     <>
       <Container className="contentWrapper">
-        {search === null ? (
-          <Container className="filtersContainer">
-            <Container className="filterContainer filterTop">
-              <Sort sort={sort} loadPage={loadPage} />
-              <Platforms platform={platform} name="All Platforms" />
-            </Container>
-            <Container className="filterContainer filterBottom">
-              <Filters filters={filters} />
-            </Container>
+
+        <Container className="filtersContainer">
+          <Container className="filterContainer filterTop">
+            <Sort sort={sort} loadPage={loadPage} />
+            <Platforms platform={platform} name="All Platforms" />
           </Container>
-        ) : (
-          <></>
-        )}
+          <Container className="filterContainer filterBottom">
+            <Filters filters={filters} />
+          </Container>
+        </Container>
+
         <Loading isLoading={isLoading}>
           <PageOfGames pageOfGames={pageOfItems} platform={platform} />
           <Pagination pager={pager} />

@@ -17,7 +17,7 @@ const Search = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     dispatch(searchChange(searchTerm))
-    history.push('/platforms')
+    history.push('/games')
   }
 
   return (
