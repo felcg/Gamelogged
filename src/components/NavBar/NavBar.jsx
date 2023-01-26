@@ -9,14 +9,14 @@ const NavBar = () => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const handleLogout = () => {
-    window.localStorage.removeItem('loggedUser')
+    window.sessionStorage.removeItem('loggedUser')
     window.location.href = '/'
   }
 
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem('loggedUser')
+    const loggedUserJSON = window.sessionStorage.getItem('loggedUser')
     if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON)
+      const user = loggedUserJSON
       dispatch(login(user))
     }
   }, [])

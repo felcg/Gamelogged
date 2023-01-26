@@ -7,7 +7,7 @@ import './Profile.scss'
 const Profile = () => {
   const [user, setUser] = useState(null)
   const userFromStore = useSelector((state) => state.user)
-  const loggedUserJSON = window.localStorage.getItem('loggedUser')
+  const loggedUserJSON = window.sessionStorage.getItem('loggedUser')
 
   useEffect(() => {
     setUser(userFromStore)

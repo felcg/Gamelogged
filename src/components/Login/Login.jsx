@@ -21,7 +21,7 @@ const Login = () => {
   const [user, setUser] = useState(null)
   const dispatch = useDispatch()
   const userFromStore = useSelector((state) => state.user)
-  const loggedUserJSON = window.localStorage.getItem('loggedUser')
+  const loggedUserJSON = window.sessionStorage.getItem('loggedUser')
   const history = useHistory()
 
   useEffect(() => {
@@ -64,10 +64,13 @@ const Login = () => {
 
               try {
                 const user = await loginService.login(input)
+                const localStorageUser = {
+                  email: user.email
+                }
                 dispatch(login(user))
                 setSubmitting(false)
                 setSuccess('Successfully logged. See your account here.')
-                window.localStorage.setItem('loggedUser', JSON.stringify(user))
+                window.sessionStorage.setItem('loggedUser', JSON.stringify(localStorageUser))
               } catch (error) {
                 setError(error.response.data)
               }
