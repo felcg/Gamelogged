@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.694c0adb.chunk.css",
-    "main.js": "/static/js/main.78824942.chunk.js",
-    "main.js.map": "/static/js/main.78824942.chunk.js.map",
+    "main.css": "/static/css/main.3da0438a.chunk.css",
+    "main.js": "/static/js/main.676e207d.chunk.js",
+    "main.js.map": "/static/js/main.676e207d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.de61d3ad.js",
     "runtime-main.js.map": "/static/js/runtime-main.de61d3ad.js.map",
-    "static/js/2.ee62c011.chunk.js": "/static/js/2.ee62c011.chunk.js",
-    "static/js/2.ee62c011.chunk.js.map": "/static/js/2.ee62c011.chunk.js.map",
+    "static/js/2.cf6092f4.chunk.js": "/static/js/2.cf6092f4.chunk.js",
+    "static/js/2.cf6092f4.chunk.js.map": "/static/js/2.cf6092f4.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.9ac11afb58d925f64e55dc76cb5f86ce.js": "/precache-manifest.9ac11afb58d925f64e55dc76cb5f86ce.js",
+    "precache-manifest.5b3f20ccba907922a8e2caa19f84642e.js": "/precache-manifest.5b3f20ccba907922a8e2caa19f84642e.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.694c0adb.chunk.css.map": "/static/css/main.694c0adb.chunk.css.map",
-    "static/js/2.ee62c011.chunk.js.LICENSE.txt": "/static/js/2.ee62c011.chunk.js.LICENSE.txt",
+    "static/css/main.3da0438a.chunk.css.map": "/static/css/main.3da0438a.chunk.css.map",
+    "static/js/2.cf6092f4.chunk.js.LICENSE.txt": "/static/js/2.cf6092f4.chunk.js.LICENSE.txt",
     "static/media/Home.scss": "/static/media/suikoden-2-box-art-crop_1280.0.0.c951b213.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.de61d3ad.js",
-    "static/js/2.ee62c011.chunk.js",
-    "static/css/main.694c0adb.chunk.css",
-    "static/js/main.78824942.chunk.js"
+    "static/js/2.cf6092f4.chunk.js",
+    "static/css/main.3da0438a.chunk.css",
+    "static/js/main.676e207d.chunk.js"
   ]
 }
