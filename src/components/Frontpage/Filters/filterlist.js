@@ -13,6 +13,7 @@ export const genres = [
   'Pinball',
   'Puzzle',
   'Real Time Strategy (RTS)',
+  // eslint-disable-next-line quotes
   "Hack and slash/Beat 'em up",
   'Visual Novel',
   'Platform',

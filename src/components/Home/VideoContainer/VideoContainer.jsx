@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import redditService from '../../../services/reddit'
