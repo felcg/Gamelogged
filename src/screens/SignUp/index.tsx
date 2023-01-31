@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import Loading from '../../components/Loader/loading'
-import signupService from '../../services/signup'
+import { signup } from 'src/services/'
 import './styles.scss'
 
 const SignupSchema = Yup.object().shape({
@@ -59,7 +59,7 @@ export const SignUp = () => {
                 }
 
                 try {
-                  await signupService.signup(user)
+                  await signup(user)
                   setSubmitting(false)
                   setSuccess(
                     "Thanks for joining! Check your email to verify your account. If you can't find the email, please check your spam folder."

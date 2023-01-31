@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import Loading from '../../components/Loader/loading'
-import resetPasswordService from '../../services/resetPassword'
+import { resetPassword } from 'src/services'
 import './styles.scss'
 
 const PasswordResetSchema = Yup.object().shape({
@@ -14,7 +14,7 @@ const PasswordResetSchema = Yup.object().shape({
     .min(6, 'Password needs to be at least 6 characters long'),
 })
 
-export const ForgotPassword = () => {
+export const PasswordReset = () => {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -49,11 +49,7 @@ export const ForgotPassword = () => {
                 const { password } = values
 
                 try {
-                  await resetPasswordService.resetPassword(
-                    params.email,
-                    params.token,
-                    password
-                  )
+                  await resetPassword(params.email, params.token, password)
                   setSubmitting(false)
                   setSuccess('Your password has been reset')
                 } catch (error) {

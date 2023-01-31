@@ -4,8 +4,8 @@ import { Button } from 'react-bootstrap'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { Redirect, useHistory } from 'react-router-dom'
-import loginService from '../../services/login'
-import { login } from '../../reducers/userReducer'
+import { login } from 'src/services'
+import { login as loginFromReducer } from '../../reducers/userReducer'
 import './styles.scss'
 
 const loginSchema = Yup.object().shape({
@@ -60,11 +60,11 @@ export const Login = () => {
               }
 
               try {
-                const user = await loginService.login(input)
+                const user = await login(input)
                 const localStorageUser = {
                   email: user.email,
                 }
-                dispatch(login(user))
+                dispatch(loginFromReducer(user))
                 setSubmitting(false)
                 setSuccess('Successfully logged. See your account here.')
                 window.sessionStorage.setItem(

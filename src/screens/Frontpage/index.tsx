@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
 import { Container } from 'react-bootstrap'
-import gameService from '../../services/games'
+import { getAllGames, getPlatformGames, searchGames } from 'src/services/games'
 
 import { Sort, Platforms, PageOfGames, Filters, Pagination } from './components'
 import Loading from '../../components/Loader/loading'
 
 import './styles.scss'
 
-const Index = () => {
+export const FrontPage = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [pager, setPager] = useState([])
   const [pageOfItems, setPageOfItems] = useState([])
@@ -27,7 +27,7 @@ const Index = () => {
     setIsLoading(true)
 
     if (search !== null) {
-      const response = await gameService.searchGames(search, page)
+      const response = await searchGames(search, page)
       setPager(response.pager)
       setPageOfItems(response.pageOfItems)
       setIsLoading(false)
@@ -35,7 +35,7 @@ const Index = () => {
     }
 
     if (platform !== 'all') {
-      const response = await gameService.getPlatformGames(
+      const response = await getPlatformGames(
         platform,
         page,
         sort,
@@ -50,13 +50,7 @@ const Index = () => {
       return null
     }
 
-    const response = await gameService.getAllGames(
-      page,
-      sort,
-      genre,
-      gameMode,
-      coopMode
-    )
+    const response = await getAllGames(page, sort, genre, gameMode, coopMode)
     setPager(response.pager)
     setPageOfItems(response.pageOfItems)
     setIsLoading(false)
@@ -90,5 +84,3 @@ const Index = () => {
     </>
   )
 }
-
-export default Index

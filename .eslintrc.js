@@ -44,5 +44,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'linebreak-style': 'off',
+    'no-empty-function': 'off',
+    'import/extensions': 'off',
   },
 }

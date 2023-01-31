@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import gameService from '../../../services/games'
+import { getCompany } from 'src/services'
 
 export const Company = ({ id }: { id: string | number }) => {
   const [company, setCompany] = useState<any>()
-  const getCompany = async () => {
-    const returnedCompany = await gameService.getCompany(id)
+  const getCompanyFromService = async () => {
+    const returnedCompany = await getCompany(id)
     setCompany(returnedCompany[0])
   }
 
   useEffect(() => {
-    getCompany()
+    getCompanyFromService()
   }, [])
   return (
     <>

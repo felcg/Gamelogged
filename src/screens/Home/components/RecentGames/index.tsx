@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import gameService from '../../../services/games'
-import GameCard from '../../GameCard/GameCard'
+import { getAllGames } from 'src/services'
+import { GameCard } from 'src/components'
 import './styles.scss'
 
 export const RecentGames = () => {
   const [games, setGames] = useState([])
 
   const getGames = async () => {
-    const response = await gameService.getAllGames(
+    const response = await getAllGames(
       1,
       'release',
       'nofilter',
@@ -26,9 +26,7 @@ export const RecentGames = () => {
       <h1>Recent Releases</h1>
       <div className="GameCardContainer container">
         {games &&
-          games.map((game, index) => (
-            <GameCard key={game.id} game={game} index={index} />
-          ))}
+          games.map((game, index) => <GameCard key={game.id} game={game} />)}
       </div>
     </div>
   )

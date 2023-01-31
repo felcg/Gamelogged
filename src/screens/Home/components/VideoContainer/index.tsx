@@ -3,7 +3,7 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
-import redditService from '../../../services/reddit'
+import { getTopPosts } from 'src/services'
 import './styles.scss'
 
 export const VideoContainer = () => {
@@ -38,7 +38,7 @@ export const VideoContainer = () => {
   }
 
   const getPosts = async () => {
-    const response = await redditService.getTopPosts()
+    const response = await getTopPosts()
     const onlyVideos = videoPosts(response)
     setPosts(onlyVideos)
   }
@@ -78,7 +78,7 @@ export const VideoContainer = () => {
             className="Video"
             key={videoObject.id}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen="1"
+            allowFullScreen={true}
             frameBorder="0"
             title={videoObject.title}
             src={`https://www.youtube.com/embed/${videoObject.id}`}

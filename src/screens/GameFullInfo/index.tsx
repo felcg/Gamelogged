@@ -4,11 +4,11 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Container, Modal, Carousel } from 'react-bootstrap'
+import { getGame } from 'src/services/games'
 import { Company, SimilarGame } from './components'
-import gameService from '../../services/games'
 import './styles.scss'
 
-export const GameInfo = () => {
+export const GameFullInfo = () => {
   const { gameId } = useParams()
   const [game, setGame] = useState({})
   const [showScreenshotsModal, setShowScreenshotsModal] = useState(false)
@@ -31,8 +31,8 @@ export const GameInfo = () => {
       break
   }
 
-  const getGame = async () => {
-    const response = await gameService.getGame(gameId)
+  const getGameFromService = async () => {
+    const response = await getGame(gameId)
     setGame(response[0])
   }
 
@@ -256,11 +256,11 @@ export const GameInfo = () => {
             className="Video"
             key={videoObject.id}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen={true}
+            allowFullScreen
             frameBorder="0"
             title={videoObject.title}
             src={`https://www.youtube.com/embed/${videoObject.video_id}`}
-            //poster={`https://img.youtube.com/vi/${videoObject.video_id}/0.jpg`}
+            // poster={`https://img.youtube.com/vi/${videoObject.video_id}/0.jpg`}
           />
         </div>
       </Modal>

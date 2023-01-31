@@ -4,15 +4,15 @@ import { Button } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import Loading from '../../components/Loader/loading'
-import forgotPasswordService from '../../services/forgotPassword'
+import Loading from 'src/components/Loader/loading'
+import { forgotPassword } from 'src/services/forgotPassword'
 import './styles.scss'
 
 const ResetPasswordSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
 })
 
-const ForgotPassword = () => {
+export const ForgotPassword = () => {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -42,7 +42,7 @@ const ForgotPassword = () => {
                 const { email } = values
 
                 try {
-                  await forgotPasswordService.forgotPassword(email)
+                  await forgotPassword(email)
                   setSubmitting(false)
                   setSuccess(
                     `Inscructions on how to finish your password reset have been sent to ${email}`
@@ -96,5 +96,3 @@ const ForgotPassword = () => {
     </div>
   )
 }
-
-export default ForgotPassword

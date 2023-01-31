@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import gameService from '../../../services/games'
+import { getGame } from 'src/services'
 
 export const SimilarGame = ({ similarGames }) => {
   const [gameList, setGameList] = useState([])
-  const getGame = async () => {
-    Promise.all(
-      similarGames.map((similarGame) => gameService.getGame(similarGame))
-    ).then((value) => {
-      setGameList(value)
-    })
+  const getGameFromService = async () => {
+    Promise.all(similarGames.map((similarGame) => getGame(similarGame))).then(
+      (value) => {
+        setGameList(value)
+      }
+    )
   }
 
   useEffect(() => {
-    getGame()
+    getGameFromService()
   }, [])
 
   return (

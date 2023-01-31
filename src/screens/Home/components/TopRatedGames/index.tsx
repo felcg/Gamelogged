@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import gameService from '../../../services/games'
-import GameCard from '../../GameCard/GameCard'
+import { getTopTen } from 'src/services'
+import { GameCard } from 'src/components'
 import './styles.scss'
 
 export const TopRatedGames = () => {
   const [games, setGames] = useState([])
 
   const getGames = async () => {
-    const response = await gameService.getTopTen()
+    const response = await getTopTen()
     setGames(response)
   }
 

@@ -19,7 +19,7 @@
     "useUnknownInCatchVariables": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "typeRoots": ["node_modules/yup"]
+    "baseUrl": "./"
   },
-  "include": ["src", "decs.d.ts"]
+  "include": ["src"]
 }
