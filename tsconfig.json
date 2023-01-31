@@ -18,7 +18,8 @@
     "strictPropertyInitialization": false,
     "useUnknownInCatchVariables": false,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "typeRoots": ["node_modules/yup"]
   },
   "include": ["src", "decs.d.ts"]
 }
