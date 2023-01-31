@@ -1,0 +1,6 @@
+export * from './forgotPassword'
+export * from './games'
+export * from './login'
+export * from './reddit'
+export * from './resetPassword'
+export * from './signup'

@@ -1,0 +1,5 @@
+export * from './Footer'
+export * from './GameCard'
+export * from './Loader'
+export * from './NavBar'
+export * from './Search'

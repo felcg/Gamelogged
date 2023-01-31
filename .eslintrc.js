@@ -29,7 +29,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       1,
       {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.tsx', '.ts'],
       },
     ],
     'react/prop-types': 'off',
@@ -44,5 +44,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'linebreak-style': 'off',
+    'no-empty-function': 'off',
+    'import/extensions': 'off',
   },
 }
