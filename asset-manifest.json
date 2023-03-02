@@ -1,23 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.3da0438a.chunk.css",
-    "main.js": "/static/js/main.4e6d41f6.chunk.js",
-    "main.js.map": "/static/js/main.4e6d41f6.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.de61d3ad.js",
-    "runtime-main.js.map": "/static/js/runtime-main.de61d3ad.js.map",
-    "static/js/2.cf6092f4.chunk.js": "/static/js/2.cf6092f4.chunk.js",
-    "static/js/2.cf6092f4.chunk.js.map": "/static/js/2.cf6092f4.chunk.js.map",
+    "main.css": "/static/css/main.87d982e8.css",
+    "main.js": "/static/js/main.5ed79905.js",
+    "static/media/suikoden-2-box-art-crop_1280.0.0.jpg": "/static/media/suikoden-2-box-art-crop_1280.0.0.99ea4d68d9c8635b7ac6.jpg",
     "index.html": "/index.html",
-    "precache-manifest.e6f42a30b385ba3d8e4f171f0c396352.js": "/precache-manifest.e6f42a30b385ba3d8e4f171f0c396352.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.3da0438a.chunk.css.map": "/static/css/main.3da0438a.chunk.css.map",
-    "static/js/2.cf6092f4.chunk.js.LICENSE.txt": "/static/js/2.cf6092f4.chunk.js.LICENSE.txt",
-    "static/media/Home.scss": "/static/media/suikoden-2-box-art-crop_1280.0.0.c951b213.jpg"
+    "main.87d982e8.css.map": "/static/css/main.87d982e8.css.map",
+    "main.5ed79905.js.map": "/static/js/main.5ed79905.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.de61d3ad.js",
-    "static/js/2.cf6092f4.chunk.js",
-    "static/css/main.3da0438a.chunk.css",
-    "static/js/main.4e6d41f6.chunk.js"
+    "static/css/main.87d982e8.css",
+    "static/js/main.5ed79905.js"
   ]
 }
